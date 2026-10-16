@@ -1,0 +1,174 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, h4,
+p,
+figure,
+ul, ol {
+  margin: 0;
+}
+
+ul[class] {
+  list-style: "​";
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #F8F4EC;
+  color: #23003F;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 1.6rem + 3.25vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 1.4rem + 1.75vw, 2.75rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.625rem);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+a:hover {
+  text-decoration-thickness: 3px;
+}
+
+::-moz-selection {
+  background-color: #E6EF5A;
+  color: #23003F;
+}
+
+::selection {
+  background-color: #E6EF5A;
+  color: #23003F;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+audio {
+  display: block;
+  width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid #23003F;
+  outline-offset: 3px;
+}
+
+.site-footer :focus-visible,
+.hero :focus-visible {
+  outline-color: #E6EF5A;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: clamp(1rem, 0.5rem + 2.5vw, 2rem);
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background-color: #E6EF5A;
+  color: #23003F;
+  font-weight: 700;
+  border: 3px solid #23003F;
+  border-radius: 0.5rem;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  .skip-link {
+    transition: transform 0.15s ease-out;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

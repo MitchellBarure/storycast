@@ -1,0 +1,189 @@
+@use "colors" as *;
+@use "typography" as *;
+@use "spacing" as *;
+
+// ---------- Reset ----------
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, h4,
+p,
+figure,
+ul, ol {
+    margin: 0;
+}
+
+// Lists with a class are styled by components.
+ul[class] {
+    list-style: "\200B";
+    padding: 0;
+}
+
+// Make sure the `hidden` attribute always wins (used by the audio/video switch)
+[hidden] {
+    display: none !important;
+}
+
+// ---------- Page ----------
+
+html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background-color: $bg;
+    color: $text;
+    font-family: $font-body;
+    font-size: $text-base;
+    font-weight: $weight-body;
+    line-height: $leading-body;
+}
+
+// ---------- Text ----------
+
+h1, h2, h3, h4 {
+    font-family: $font-heading;
+    font-weight: $weight-heading;
+    line-height: $leading-snug;
+    letter-spacing: $tracking-tight;
+    text-wrap: balance;
+}
+
+h1 { font-size: $text-3xl; }
+h2 { font-size: $text-2xl; }
+h3 { font-size: $text-xl; }
+
+p {
+    text-wrap: pretty;
+}
+
+strong {
+    font-weight: $weight-bold;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+
+    &:hover {
+        text-decoration-thickness: 3px;
+    }
+}
+
+::selection {
+    background-color: $lime;
+    color: $ink;
+}
+
+// ---------- Media ----------
+
+img,
+video,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+audio {
+    display: block;
+    width: 100%;
+}
+
+// ---------- Forms ----------
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+// ---------- Accessibility helpers ----------
+
+// Focus outline: 3px Ink on light areas...
+:focus-visible {
+    outline: $focus-width solid $focus-light;
+    outline-offset: $focus-offset;
+}
+
+// Lime on Ink areas
+.site-footer :focus-visible,
+.hero :focus-visible {
+    outline-color: $focus-dark;
+}
+
+// <main> receives focus from the skip link; it doesn't need an outline
+[tabindex="-1"]:focus {
+    outline: none;
+}
+
+// Hidden on screen, still read by screen readers
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+// Off screen until it receives keyboard focus, then slides into the top-left corner
+.skip-link {
+    position: absolute;
+    top: $space-2xs;
+    left: $gutter;
+    z-index: 100;
+    padding: $space-2xs $space-s;
+    background-color: $lime;
+    color: $ink;
+    font-weight: $weight-bold;
+    border: $border-width solid $border;
+    border-radius: $radius-s;
+    transform: translateY(-200%);
+
+    &:focus {
+        transform: translateY(0);
+    }
+}
+
+// ---------- Motion ----------
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .skip-link {
+        transition: transform 0.15s ease-out;
+    }
+}
+
+// Respect "reduce motion": switch off animations and transitions everywhere
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
