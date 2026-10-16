@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StoryCast: Adulting with Mitchie. Video stories about studying abroad, surviving uni, learning to code and making friends as an adult.">
+    <title>Home | StoryCast</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+
+    <!-- First focusable element: lets keyboard users jump past the nav -->
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <!-- Swap the text for <img src="assets/images/logo.svg" alt="StoryCast"> when the logo is ready -->
+        <a class="logo" href="index.html">StoryCast</a>
+
+        <nav aria-label="Main">
+            <ul class="nav-list">
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="story.html">Stories</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hook for main.js: Web Share API, falling back to copying the link -->
+        <button type="button" class="btn btn-share" data-share>Share</button>
+        <!-- main.js writes "Link copied" etc. here so screen readers announce it -->
+        <p class="visually-hidden" role="status" data-share-status></p>
+    </header>
+
+    <main id="main" tabindex="-1">
+
+        <section class="hero" aria-labelledby="hero-title">
+            <!-- Decorative background image, so alt stays empty -->
+            <img src="assets/images/hero.jpg" class="hero-image" alt="">
+            <div class="hero-content">
+                <h1 id="hero-title">StoryCast: Adulting with Mitchie</h1>
+                <p class="hero-subtitle">Studying abroad, surviving uni, learning to code and making friends as an adult.</p>
+                <a class="btn btn-primary" href="#featured">Start watching</a>
+            </div>
+        </section>
+
+        <section id="featured" class="featured" aria-labelledby="featured-title">
+            <h2 id="featured-title">Featured stories</h2>
+
+            <!-- Carousel: no autoplay. Users control it with the buttons, or Tab through the cards. -->
+            <div class="carousel" aria-roledescription="carousel" aria-label="Featured stories">
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-btn" data-carousel-prev aria-controls="featured-track">
+                        <span aria-hidden="true">&larr;</span>
+                        <span class="visually-hidden">Previous stories</span>
+                    </button>
+                    <button type="button" class="carousel-btn" data-carousel-next aria-controls="featured-track">
+                        <span aria-hidden="true">&rarr;</span>
+                        <span class="visually-hidden">Next stories</span>
+                    </button>
+                </div>
+
+                <ul id="featured-track" class="carousel-track">
+                    <li>
+                        <article class="story-card">
+                            <img src="assets/images/story-1-thumb.jpg" alt="">
+                            <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                            <p class="story-card-meta">
+                                <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                            </p>
+                            <p class="story-card-location">
+                                <span class="visually-hidden">Location: </span>City, Country
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="story-card">
+                            <img src="assets/images/story-2-thumb.jpg" alt="">
+                            <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                            <p class="story-card-meta">
+                                <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                            </p>
+                            <p class="story-card-location">
+                                <span class="visually-hidden">Location: </span>City, Country
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="story-card">
+                            <img src="assets/images/story-3-thumb.jpg" alt="">
+                            <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                            <p class="story-card-meta">
+                                <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                            </p>
+                            <p class="story-card-location">
+                                <span class="visually-hidden">Location: </span>City, Country
+                            </p>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="topics" aria-labelledby="topics-title">
+            <h2 id="topics-title">Explore by topic</h2>
+            <ul class="topic-list">
+                <li><a class="topic-chip" href="story.html">Studying abroad</a></li>
+                <li><a class="topic-chip" href="story.html">Surviving uni</a></li>
+                <li><a class="topic-chip" href="story.html">Learning to code</a></li>
+                <li><a class="topic-chip" href="story.html">Making friends</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-name">Mitchell Barure</p>
+        <div class="socials">
+            <h2 class="socials-title">Say hi</h2>
+            <ul class="socials-list">
+                <li>
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon" aria-hidden="true"></span>
+                        GitHub
+                        <span aria-hidden="true">&nearr;</span>
+                        <span class="visually-hidden">(opens in a new tab)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon" aria-hidden="true"></span>
+                        Instagram
+                        <span aria-hidden="true">&nearr;</span>
+                        <span class="visually-hidden">(opens in a new tab)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

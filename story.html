@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Watch this StoryCast story with captions, or read the full transcript.">
+    <!-- Put the story's name first, e.g. "First week in a new country | StoryCast" -->
+    <title>Story title | StoryCast</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <a class="logo" href="index.html">StoryCast</a>
+
+        <nav aria-label="Main">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="story.html" aria-current="page">Stories</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <button type="button" class="btn btn-share" data-share>Share</button>
+        <p class="visually-hidden" role="status" data-share-status></p>
+    </header>
+
+    <main id="main" class="story-layout" tabindex="-1">
+
+        <article class="story" aria-labelledby="story-title">
+
+            <figure class="story-video">
+                <!-- No autoplay. preload="metadata" loads the length and first frame only. -->
+                <video controls preload="metadata" poster="assets/images/story-1-poster.jpg" aria-describedby="story-description">
+                    <source src="assets/video/story-1.mp4" type="video/mp4">
+                    <track kind="captions" src="assets/captions/story-1-en.vtt" srclang="en" label="English" default>
+                    <!-- Fallback for browsers that can't play the video -->
+                    <p>
+                        Your browser can't play this video.
+                        <a href="assets/video/story-1.mp4">Download the video</a>
+                        or read the <a href="#transcript">transcript</a>.
+                    </p>
+                </video>
+            </figure>
+
+            <header class="story-header">
+                <h1 id="story-title">Story title</h1>
+                <p class="story-meta">
+                    <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                    <span aria-hidden="true">&middot;</span>
+                    <span class="visually-hidden">Location: </span>City, Country
+                </p>
+            </header>
+
+            <p id="story-description" class="story-description">Story description goes here.</p>
+
+            <section id="transcript" class="transcript" aria-labelledby="transcript-title">
+                <h2 id="transcript-title">Transcript</h2>
+                <!-- <details> is expandable and works with the keyboard without any JS -->
+                <details>
+                    <summary>Show full transcript</summary>
+                    <div class="transcript-body">
+                        <!-- Add sound and visual details in [brackets] so the transcript works for Deaf and blind readers -->
+                        <p>Transcript goes here.</p>
+                    </div>
+                </details>
+                <p class="transcript-download">
+                    <a href="assets/transcripts/story-1.txt" download>Download transcript (TXT)</a>
+                </p>
+            </section>
+
+        </article>
+
+        <aside class="related" aria-labelledby="related-title">
+            <h2 id="related-title">You might also like</h2>
+            <ul class="related-list">
+                <li>
+                    <article class="story-card story-card-small">
+                        <img src="assets/images/story-2-thumb.jpg" alt="">
+                        <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                        <p class="story-card-meta">
+                            <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                        </p>
+                    </article>
+                </li>
+                <li>
+                    <article class="story-card story-card-small">
+                        <img src="assets/images/story-3-thumb.jpg" alt="">
+                        <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                        <p class="story-card-meta">
+                            <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                        </p>
+                    </article>
+                </li>
+                <li>
+                    <article class="story-card story-card-small">
+                        <img src="assets/images/story-4-thumb.jpg" alt="">
+                        <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                        <p class="story-card-meta">
+                            <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                        </p>
+                    </article>
+                </li>
+            </ul>
+        </aside>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-name">Mitchell Barure</p>
+        <div class="socials">
+            <h2 class="socials-title">Say hi</h2>
+            <ul class="socials-list">
+                <li>
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon" aria-hidden="true"></span>
+                        GitHub
+                        <span aria-hidden="true">&nearr;</span>
+                        <span class="visually-hidden">(opens in a new tab)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon" aria-hidden="true"></span>
+                        Instagram
+                        <span aria-hidden="true">&nearr;</span>
+                        <span class="visually-hidden">(opens in a new tab)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>
