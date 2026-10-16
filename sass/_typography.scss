@@ -5,3 +5,22 @@ $font-body:      "DM Sans", system-ui, sans-serif;
 $weight-heading: 800; // ExtraBold
 $weight-body:    400;
 $weight-bold:    700;
+
+// Type scale: each size grows smoothly between phone and desktop.
+// The rem part keeps text resizable, so browser zoom and font settings still work.
+$text-sm:      0.875rem;                                    // small print, labels
+$text-base:    clamp(1rem, 0.95rem + 0.25vw, 1.125rem);     // body text
+$text-lg:      clamp(1.125rem, 1rem + 0.5vw, 1.375rem);     // taglines, intro text
+$text-xl:      clamp(1.25rem, 1.1rem + 0.75vw, 1.625rem);   // h3, card titles
+$text-2xl:     clamp(1.75rem, 1.4rem + 1.75vw, 2.75rem);    // h2
+$text-3xl:     clamp(2.25rem, 1.6rem + 3.25vw, 4rem);       // h1
+$text-display: clamp(2.75rem, 1.5rem + 6vw, 6rem);          // hero title
+
+// Line height
+$leading-tight: 1.05;  // big display text
+$leading-snug:  1.2;   // headings
+$leading-body:  1.6;   // paragraphs
+
+// Letter spacing
+$tracking-tight: -0.02em;  // big chunky headings
+$tracking-wide:  0.08em;   // small uppercase labels, e.g. Video / Audio
