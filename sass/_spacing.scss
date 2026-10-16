@@ -1,0 +1,39 @@
+// Spacing scale (rem, so it grows with the user's font size)
+$space-3xs: 0.25rem;
+$space-2xs: 0.5rem;   
+$space-xs:  0.75rem;  
+$space-s:   1rem;     
+$space-m:   1.5rem;   
+$space-l:   2rem;     
+$space-xl:  3rem;     
+$space-2xl: 4rem;     
+
+// Gap between page sections: grows from 48px on phones to 96px on wide screens
+$space-section: clamp(3rem, 2rem + 4vw, 6rem);
+
+// Page width and side gutter (16px minimum on phones)
+$max-width:      72rem;  
+$max-width-text: 65ch;    
+$gutter:         clamp(1rem, 0.5rem + 2.5vw, 2rem);
+
+// Corners: rounded
+$radius-s:    0.5rem;
+$radius-m:    1rem;
+$radius-l:    1.5rem;
+$radius-pill: 999px;
+
+// Chunky sticker edges
+$border-width:  3px;
+$shadow-offset: 4px;  
+
+// Focus outline 
+$focus-width:  3px;
+$focus-offset: 3px;
+
+// Minimum size for buttons and links you tap
+$tap-target: 2.75rem;
+
+// Breakpoints in em, so they still work when the user zooms or changes font size
+$bp-sm: 40em;  //  large phones
+$bp-md: 48em;  //  tablets
+$bp-lg: 64em;  //  laptops and up

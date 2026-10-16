@@ -1,0 +1,7 @@
+{
+    // Live Sass Compiler: compile sass/main.scss to css/main.css (the file the pages load)
+    "liveSassCompile.settings.formats": [
+        { "format": "expanded", "extensionName": ".css", "savePath": "/css" }
+    ],
+    "liveSassCompile.settings.generateMap": false
+}
