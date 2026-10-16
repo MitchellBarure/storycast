@@ -10,10 +10,11 @@
 </head>
 <body>
 
-    <!--check the necessity of this-->
+    <!-- First focusable element: lets keyboard users jump past the nav -->
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <header class="site-header">
+        <!-- Swap the text for <img src="assets/images/logo.svg" alt="StoryCast"> when the logo is ready -->
         <a class="logo" href="index.html">StoryCast</a>
 
         <nav aria-label="Main">
@@ -24,7 +25,9 @@
             </ul>
         </nav>
 
+        <!-- Hook for main.js: Web Share API, falling back to copying the link -->
         <button type="button" class="btn btn-share" data-share>Share</button>
+        <!-- main.js writes "Link copied" etc. here so screen readers announce it -->
         <p class="visually-hidden" role="status" data-share-status></p>
     </header>
 
@@ -32,19 +35,19 @@
 
         <section class="about-intro" aria-labelledby="about-title">
             <h1 id="about-title">Why I started</h1>
-            <p class="tagline"><!-- Insert tagline -->Tagline goes here.</p>
-            <p><!-- Insert detailed description -->Detailed description goes here.</p>
+            <p class="tagline">The guide I wish I had.</p>
+            <p>I finished high school in South Africa dreaming of studying medicine. Life had other plans, and I ended up studying software engineering at ALU in Kigali. I never let go of healthcare, though. Today my mission is to build digital tools that make healthcare more affordable for families in Zimbabwe. Along the way I kept recording moments: my first football match in a new city, late nights building apps, hectic days leading a team, and advice from friends. StoryCast is where I share them, so the next person figuring out adulthood feels a little less alone.</p>
         </section>
 
         <section class="audience" aria-labelledby="audience-title">
             <div class="audience-text">
                 <h2 id="audience-title">Who it's for</h2>
-                <p><!-- Insert information about the target audience -->Target audience description goes here.</p>
+                <p>StoryCast is for anyone stepping into adulthood: students about to leave home, first-years trying to find their feet, people teaching themselves to code, and anyone who has wondered how to make friends after school. If you're figuring life out as you go, this is for you.</p>
             </div>
             <figure class="audience-photo">
-                <!-- Describe what's in the photo, e.g. "Mitchie and four friends laughing on a campus lawn" -->
-                <img src="assets/images/group-photo.jpg" alt="Describe the group photo here">
-                <figcaption><!-- Optional caption -->Photo caption goes here.</figcaption>
+                <!-- TODO: update alt to describe the real photo -->
+                <img src="assets/images/group-photo.jpg" alt="Mitchie laughing with friends outdoors in Kigali">
+                <figcaption>Some of the people who made a new city feel like home.</figcaption>
             </figure>
         </section>
 
@@ -54,17 +57,17 @@
                 <li class="feature-card">
                     <span class="feature-icon" aria-hidden="true"></span>
                     <h3>Captions and transcripts</h3>
-                    <p><!-- For Deaf and hard of hearing viewers -->Description goes here.</p>
+                    <p>Every video has captions you can switch on, and every story has a full written transcript. Watch with the sound off, or read instead.</p>
                 </li>
                 <li class="feature-card">
                     <span class="feature-icon" aria-hidden="true"></span>
                     <h3>Screen reader friendly</h3>
-                    <p><!-- For blind and low-vision viewers -->Description goes here.</p>
+                    <p>Pages use clear headings, labelled buttons and image descriptions, so screen readers can read every page in a sensible order.</p>
                 </li>
                 <li class="feature-card">
                     <span class="feature-icon" aria-hidden="true"></span>
                     <h3>Keyboard friendly</h3>
-                    <p><!-- For people who don't use a mouse -->Description goes here.</p>
+                    <p>Move through the whole site with Tab, Shift+Tab and Enter. A bold outline always shows where you are, and a skip link jumps straight to the content.</p>
                 </li>
             </ul>
         </section>
@@ -72,9 +75,9 @@
         <section class="engage" aria-labelledby="engage-title">
             <h2 id="engage-title">How to engage</h2>
             <ol class="steps">
-                <li><!-- Insert step 1 -->Step one goes here.</li>
-                <li><!-- Insert step 2 -->Step two goes here.</li>
-                <li><!-- Insert step 3 -->Step three goes here.</li>
+                <li><strong>Pick a story.</strong> Browse the featured stories on the home page or choose a topic.</li>
+                <li><strong>Watch, listen or read.</strong> Press play and turn on captions with the CC button, or open the full transcript below the video.</li>
+                <li><strong>Say hi.</strong> Got a story or a question? Find me on GitHub or Instagram. The links are in the footer.</li>
             </ol>
         </section>
 
@@ -84,6 +87,7 @@
         <p class="footer-name">Mitchell Barure</p>
         <div class="socials">
             <h2 class="socials-title">Say hi</h2>
+            <!-- TODO: add my real profile URLs -->
             <ul class="socials-list">
                 <li>
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer">

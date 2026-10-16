@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="StoryCast: Adulting with Mitchie. Video stories about studying abroad, surviving uni, learning to code and making friends as an adult.">
+    <meta name="description" content="StoryCast: Adulting with Mitchie. Video and audio stories about studying abroad, surviving uni, learning to code and making friends as an adult.">
     <title>Home | StoryCast</title>
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js" defer></script>
@@ -38,16 +38,17 @@
             <img src="assets/images/hero.jpg" class="hero-image" alt="">
             <div class="hero-content">
                 <h1 id="hero-title">StoryCast: Adulting with Mitchie</h1>
-                <p class="hero-subtitle">Studying abroad, surviving uni, learning to code and making friends as an adult.</p>
+                <p class="hero-subtitle">Real stories about studying abroad, surviving uni, learning to code, and making friends as an adult.</p>
                 <a class="btn btn-primary" href="#featured">Start watching</a>
             </div>
         </section>
 
-        <section id="featured" class="featured" aria-labelledby="featured-title">
+        <!-- The section is the carousel landmark: screen readers announce "Featured stories, carousel" -->
+        <section id="featured" class="featured" aria-labelledby="featured-title" aria-roledescription="carousel">
             <h2 id="featured-title">Featured stories</h2>
 
             <!-- Carousel: no autoplay. Users control it with the buttons, or Tab through the cards. -->
-            <div class="carousel" aria-roledescription="carousel" aria-label="Featured stories">
+            <div class="carousel">
                 <div class="carousel-controls">
                     <button type="button" class="carousel-btn" data-carousel-prev aria-controls="featured-track">
                         <span aria-hidden="true">&larr;</span>
@@ -63,36 +64,70 @@
                     <li>
                         <article class="story-card">
                             <img src="assets/images/story-1-thumb.jpg" alt="">
-                            <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                            <h3 class="story-card-title"><a href="story.html?story=1">Where I Come From, and Where I'm Going</a></h3>
                             <p class="story-card-meta">
-                                <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                                <span class="story-card-format">Video</span>
+                                <span aria-hidden="true">&middot;</span>
+                                <span class="visually-hidden">Duration: </span><time datetime="PT3M34S">3:34</time>
                             </p>
                             <p class="story-card-location">
-                                <span class="visually-hidden">Location: </span>City, Country
+                                <span class="visually-hidden">Location: </span>African Leadership University, Kigali
                             </p>
                         </article>
                     </li>
                     <li>
                         <article class="story-card">
                             <img src="assets/images/story-2-thumb.jpg" alt="">
-                            <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                            <h3 class="story-card-title"><a href="story.html?story=2">My First Football Match in Kigali</a></h3>
                             <p class="story-card-meta">
-                                <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                                <span class="story-card-format">Video</span>
+                                <span aria-hidden="true">&middot;</span>
+                                <span class="visually-hidden">Duration: </span><time datetime="PT1M31S">1:31</time>
                             </p>
                             <p class="story-card-location">
-                                <span class="visually-hidden">Location: </span>City, Country
+                                <span class="visually-hidden">Location: </span>Kigali, Rwanda
                             </p>
                         </article>
                     </li>
                     <li>
                         <article class="story-card">
                             <img src="assets/images/story-3-thumb.jpg" alt="">
-                            <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                            <h3 class="story-card-title"><a href="story.html?story=3">Building AmaiReady: An App for Expecting Mothers</a></h3>
                             <p class="story-card-meta">
-                                <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                                <span class="story-card-format">Video</span>
+                                <span aria-hidden="true">&middot;</span>
+                                <span class="visually-hidden">Duration: </span><time datetime="PT2M">2:00</time>
                             </p>
                             <p class="story-card-location">
-                                <span class="visually-hidden">Location: </span>City, Country
+                                <span class="visually-hidden">Location: </span>African Leadership University, Kigali
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="story-card">
+                            <img src="assets/images/story-4-thumb.jpg" alt="">
+                            <h3 class="story-card-title"><a href="story.html?story=4">A Day Managing Frontend Interns</a></h3>
+                            <p class="story-card-meta">
+                                <span class="story-card-format">Audio</span>
+                                <span aria-hidden="true">&middot;</span>
+                                <span class="visually-hidden">Duration: </span><time datetime="PT40S">0:40</time>
+                            </p>
+                            <p class="story-card-location">
+                                <span class="visually-hidden">Location: </span>Kigali, Rwanda
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="story-card">
+                            <img src="assets/images/story-5-thumb.jpg" alt="">
+                            <h3 class="story-card-title"><a href="story.html?story=5">Why My Website Needed a CDN</a></h3>
+                            <p class="story-card-meta">
+                                <span class="story-card-format">Audio</span>
+                                <span aria-hidden="true">&middot;</span>
+                                <span class="visually-hidden">Duration: </span><time datetime="PT3M20S">3:20</time>
+                            </p>
+                            <p class="story-card-location">
+                                <span class="visually-hidden">Location: </span>Kigali, Rwanda
                             </p>
                         </article>
                     </li>
@@ -116,6 +151,7 @@
         <p class="footer-name">Mitchell Barure</p>
         <div class="socials">
             <h2 class="socials-title">Say hi</h2>
+            <!-- TODO: add my real profile URLs -->
             <ul class="socials-list">
                 <li>
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer">

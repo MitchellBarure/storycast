@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Watch this StoryCast story with captions, or read the full transcript.">
+    <meta name="description" content="Mitchie talks about growing up, moving countries, and his mission to make healthcare more affordable in Zimbabwe. Watch with captions or read the transcript.">
     <!-- Put the story's name first, e.g. "First week in a new country | StoryCast" -->
-    <title>Story title | StoryCast</title>
+    <title>Where I Come From, and Where I'm Going | StoryCast</title>
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js" defer></script>
 </head>
 <body>
 
+    <!-- First focusable element: lets keyboard users jump past the nav -->
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <header class="site-header">
+        <!-- Swap the text for <img src="assets/images/logo.svg" alt="StoryCast"> when the logo is ready -->
         <a class="logo" href="index.html">StoryCast</a>
 
         <nav aria-label="Main">
@@ -24,7 +26,9 @@
             </ul>
         </nav>
 
+        <!-- Hook for main.js: Web Share API, falling back to copying the link -->
         <button type="button" class="btn btn-share" data-share>Share</button>
+        <!-- main.js writes "Link copied" etc. here so screen readers announce it -->
         <p class="visually-hidden" role="status" data-share-status></p>
     </header>
 
@@ -32,7 +36,8 @@
 
         <article class="story" aria-labelledby="story-title">
 
-            <figure class="story-video">
+            <!-- main.js shows one of these two figures based on ?story=N. Without JS, story #1's video shows. -->
+            <figure class="story-video" data-media="video">
                 <!-- No autoplay. preload="metadata" loads the length and first frame only. -->
                 <video controls preload="metadata" poster="assets/images/story-1-poster.jpg" aria-describedby="story-description">
                     <source src="assets/video/story-1.mp4" type="video/mp4">
@@ -40,22 +45,40 @@
                     <!-- Fallback for browsers that can't play the video -->
                     <p>
                         Your browser can't play this video.
-                        <a href="assets/video/story-1.mp4">Download the video</a>
+                        <a href="assets/video/story-1.mp4" data-media-download>Download the video</a>
                         or read the <a href="#transcript">transcript</a>.
                     </p>
                 </video>
             </figure>
 
+            <!-- Audio stories: cover image plus player. Audio has no captions, so the transcript below carries the content. -->
+            <figure class="story-audio" data-media="audio" hidden>
+                <!-- Decorative: the H1 already names the story -->
+                <img class="story-cover" src="assets/images/story-4-poster.jpg" alt="" loading="lazy">
+                <!-- preload="none" while hidden; main.js switches it to "metadata" when this figure is shown -->
+                <audio controls preload="none" aria-describedby="story-description">
+                    <source src="assets/audio/story-4.mp3" type="audio/mpeg">
+                    <!-- Fallback for browsers that can't play the audio -->
+                    <p>
+                        Your browser can't play this audio.
+                        <a href="assets/audio/story-4.mp3" data-media-download>Download the audio</a>
+                        or read the <a href="#transcript">transcript</a>.
+                    </p>
+                </audio>
+            </figure>
+
             <header class="story-header">
-                <h1 id="story-title">Story title</h1>
+                <h1 id="story-title">Where I Come From, and Where I'm Going</h1>
                 <p class="story-meta">
-                    <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                    <span class="story-card-format" data-story-format>Video</span>
                     <span aria-hidden="true">&middot;</span>
-                    <span class="visually-hidden">Location: </span>City, Country
+                    <span class="visually-hidden">Duration: </span><time datetime="PT3M34S" data-story-duration>3:34</time>
+                    <span aria-hidden="true">&middot;</span>
+                    <span class="visually-hidden">Location: </span><span data-story-location>African Leadership University, Kigali</span>
                 </p>
             </header>
 
-            <p id="story-description" class="story-description">Story description goes here.</p>
+            <p id="story-description" class="story-description">Where I was born, where I grew up, and the mission behind everything I build: using technology and storytelling to make healthcare more affordable for single parents and low-income families in Zimbabwe.</p>
 
             <section id="transcript" class="transcript" aria-labelledby="transcript-title">
                 <h2 id="transcript-title">Transcript</h2>
@@ -64,11 +87,12 @@
                     <summary>Show full transcript</summary>
                     <div class="transcript-body">
                         <!-- Add sound and visual details in [brackets] so the transcript works for Deaf and blind readers -->
-                        <p>Transcript goes here.</p>
+                        <!-- TODO: paste transcript from story-1-en.vtt, remove timestamps, add [sound/visual notes] -->
+                        <p>[Transcript coming soon]</p>
                     </div>
                 </details>
                 <p class="transcript-download">
-                    <a href="assets/transcripts/story-1.txt" download>Download transcript (TXT)</a>
+                    <a href="assets/transcripts/story-1.txt" download data-transcript-download>Download transcript (TXT)</a>
                 </p>
             </section>
 
@@ -80,27 +104,33 @@
                 <li>
                     <article class="story-card story-card-small">
                         <img src="assets/images/story-2-thumb.jpg" alt="">
-                        <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                        <h3 class="story-card-title"><a href="story.html?story=2">My First Football Match in Kigali</a></h3>
                         <p class="story-card-meta">
-                            <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                            <span class="story-card-format">Video</span>
+                            <span aria-hidden="true">&middot;</span>
+                            <span class="visually-hidden">Duration: </span><time datetime="PT1M31S">1:31</time>
                         </p>
                     </article>
                 </li>
                 <li>
                     <article class="story-card story-card-small">
                         <img src="assets/images/story-3-thumb.jpg" alt="">
-                        <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                        <h3 class="story-card-title"><a href="story.html?story=3">Building AmaiReady: An App for Expecting Mothers</a></h3>
                         <p class="story-card-meta">
-                            <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                            <span class="story-card-format">Video</span>
+                            <span aria-hidden="true">&middot;</span>
+                            <span class="visually-hidden">Duration: </span><time datetime="PT2M">2:00</time>
                         </p>
                     </article>
                 </li>
                 <li>
                     <article class="story-card story-card-small">
                         <img src="assets/images/story-4-thumb.jpg" alt="">
-                        <h3 class="story-card-title"><a href="story.html">Story title</a></h3>
+                        <h3 class="story-card-title"><a href="story.html?story=4">A Day Managing Frontend Interns</a></h3>
                         <p class="story-card-meta">
-                            <span class="visually-hidden">Duration: </span><time datetime="PT4M">4 min</time>
+                            <span class="story-card-format">Audio</span>
+                            <span aria-hidden="true">&middot;</span>
+                            <span class="visually-hidden">Duration: </span><time datetime="PT40S">0:40</time>
                         </p>
                     </article>
                 </li>
@@ -113,6 +143,7 @@
         <p class="footer-name">Mitchell Barure</p>
         <div class="socials">
             <h2 class="socials-title">Say hi</h2>
+            <!-- TODO: add my real profile URLs -->
             <ul class="socials-list">
                 <li>
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
