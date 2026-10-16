@@ -1,0 +1,379 @@
+@use "sass:list";
+@use "colors" as *;
+@use "typography" as *;
+@use "spacing" as *;
+
+// Solid Ink shadow under stickers. Text on bright colours is always $ink.
+$sticker-shadow:       $shadow-offset $shadow-offset 0 $border;
+$sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
+
+// Lift on hover 
+@mixin lift {
+    @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+    }
+
+    &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: $sticker-shadow-hover;
+    }
+
+    &:active {
+        transform: translate(2px, 2px);
+        box-shadow: none;
+    }
+}
+
+// ---------- Buttons ----------
+
+// Tomato with Ink text (5.8:1). 
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2xs;
+    min-height: $tap-target;
+    padding: $space-2xs $space-m;
+    background-color: $btn-bg;
+    color: $btn-text;
+    font-weight: $weight-bold;
+    text-decoration: none;
+    border: $border-width solid $border;
+    border-radius: $radius-pill;
+    box-shadow: $sticker-shadow;
+    @include lift;
+}
+
+.btn-primary {
+    padding-inline: $space-l;
+    font-size: $text-lg;
+}
+
+.hero .btn {
+    box-shadow: $shadow-offset $shadow-offset 0 $lime;
+
+    &:hover {
+        box-shadow: ($shadow-offset * 2) ($shadow-offset * 2) 0 $lime;
+    }
+}
+
+// ---------- Story cards ----------
+
+.story-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: $space-2xs;
+    height: 100%;
+    padding: $space-s;
+    background-color: $bg;
+    border: $border-width solid $border;
+    border-radius: $radius-m;
+    box-shadow: $sticker-shadow;
+    @include lift;
+
+    img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        // Shows as a soft block until the thumbnail exists
+        background-color: rgba($ink, 0.12);
+        border: $border-width solid $border;
+        border-radius: $radius-s;
+    }
+}
+
+// Cards cycle through the bright colours: Sky, Lime, Tomato, Bubblegum
+@each $color in $block-colors {
+    $i: list.index($block-colors, $color);
+
+    li:nth-child(4n + #{$i}) > .story-card {
+        background-color: $color;
+    }
+}
+
+.story-card-title {
+    font-size: $text-lg;
+
+    a {
+        text-decoration: none;
+
+        // Makes the whole card clickable, while the link text stays the accessible name
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+        }
+    }
+}
+
+// Focus outline goes around the whole card instead of only the title text
+@supports selector(:has(*)) {
+    .story-card-title a:focus-visible {
+        outline: none;
+    }
+
+    .story-card:has(a:focus-visible) {
+        outline: $focus-width solid $focus-light;
+        outline-offset: $focus-offset;
+    }
+}
+
+.story-card-meta,
+.story-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $space-3xs $space-2xs;
+    font-size: $text-sm;
+    font-weight: $weight-bold;
+}
+
+.story-card-location {
+    font-size: $text-sm;
+}
+
+// Small sticker label: Video / Audio
+.story-card-format {
+    display: inline-block;
+    padding: 0.1em $space-2xs;
+    background-color: $cream;
+    color: $ink;
+    font-size: 0.75rem;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    letter-spacing: $tracking-wide;
+    border: 2px solid $border;
+    border-radius: $radius-pill;
+}
+
+// On the story page the label sits on Cream, so make it Lime to stand out
+.story-meta .story-card-format {
+    background-color: $lime;
+}
+
+// ---------- Carousel ----------
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+    gap: $space-s;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: $space-2xs;
+}
+
+.carousel-btn {
+    display: inline-grid;
+    place-items: center;
+    width: $tap-target;
+    height: $tap-target;
+    background-color: $btn-bg;
+    color: $btn-text;
+    font-size: $text-lg;
+    font-weight: $weight-bold;
+    border: $border-width solid $border;
+    border-radius: $radius-pill;
+    box-shadow: $sticker-shadow;
+    @include lift;
+}
+
+// Swipe or scroll sideways; cards snap into place.
+.carousel-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(85%, 20rem);
+    gap: $space-m;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: $space-2xs $space-2xs $space-m;
+    margin-inline: -$space-2xs;
+
+    > li {
+        scroll-snap-align: start;
+    }
+}
+
+// ---------- Topic chips ----------
+
+.topic-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-s;
+}
+
+.topic-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: $tap-target;
+    padding: $space-2xs $space-m;
+    color: $ink;
+    font-weight: $weight-bold;
+    text-decoration: none;
+    border: $border-width solid $border;
+    border-radius: $radius-pill;
+    box-shadow: $sticker-shadow;
+    @include lift;
+}
+
+@each $color in $block-colors {
+    $i: list.index($block-colors, $color);
+
+    .topic-list > li:nth-child(4n + #{$i}) .topic-chip {
+        background-color: $color;
+    }
+}
+
+// ---------- Feature cards (About) ----------
+
+// Slightly tilted to look like cute stickers stuck on a notebook
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+    padding: $space-m;
+    border: $border-width solid $border;
+    border-radius: $radius-l;
+    box-shadow: $sticker-shadow;
+
+    &:nth-child(odd)  { transform: rotate(-1deg); }
+    &:nth-child(even) { transform: rotate(1deg); }
+}
+
+@each $color in $block-colors {
+    $i: list.index($block-colors, $color);
+
+    .feature-list > .feature-card:nth-child(4n + #{$i}) {
+        background-color: $color;
+    }
+}
+
+// Placeholder circle until real icons are added
+.feature-icon {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    background-color: $cream;
+    border: $border-width solid $border;
+    border-radius: 50%;
+}
+
+// ---------- How to engage steps ----------
+
+.steps {
+    display: grid;
+    gap: $space-m;
+    max-width: $max-width-text;
+    margin-inline: auto;
+    padding: 0;
+    list-style: "\200B";  
+    counter-reset: step;
+
+    li {
+        position: relative;
+        min-height: 3rem;
+        padding-left: 4rem;
+        counter-increment: step;
+
+        // Big numbered sticker
+        &::before {
+            content: counter(step);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: grid;
+            place-items: center;
+            width: 3rem;
+            height: 3rem;
+            background-color: $lime;
+            color: $ink;
+            font-family: $font-heading;
+            font-weight: $weight-heading;
+            font-size: $text-xl;
+            border: $border-width solid $border;
+            border-radius: 50%;
+            box-shadow: $sticker-shadow;
+        }
+    }
+}
+
+// ---------- About photo ----------
+
+.audience-photo {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+
+    img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        background-color: $bubblegum;
+        border: $border-width solid $border;
+        border-radius: $radius-l;
+        box-shadow: $sticker-shadow;
+        transform: rotate(-1.5deg);
+    }
+
+    figcaption {
+        font-size: $text-sm;
+        text-align: center;
+    }
+}
+
+// ---------- Story media ----------
+
+.story-video video,
+.story-cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background-color: $dark-bg;
+    border: $border-width solid $border;
+    border-radius: $radius-l;
+    box-shadow: $sticker-shadow;
+}
+
+.story-cover {
+    background-color: $bubblegum;
+}
+
+.story-audio {
+    display: flex;
+    flex-direction: column;
+    gap: $space-s;
+}
+
+// ---------- Transcript ----------
+
+.transcript details {
+    background-color: $bg;
+    border: $border-width solid $border;
+    border-radius: $radius-m;
+    box-shadow: $sticker-shadow;
+}
+
+.transcript summary {
+    display: flex;
+    align-items: center;
+    min-height: $tap-target;
+    padding: $space-2xs $space-m;
+    font-weight: $weight-bold;
+    cursor: pointer;
+}
+
+.transcript details[open] summary {
+    border-bottom: $border-width solid $border;
+}
+
+.transcript-body {
+    display: flex;
+    flex-direction: column;
+    gap: $space-s;
+    max-width: $max-width-text;
+    padding: $space-m;
+}

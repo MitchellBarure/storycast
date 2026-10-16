@@ -1,0 +1,301 @@
+@use "colors" as *;
+@use "typography" as *;
+@use "spacing" as *;
+
+// Page width 
+%container {
+    width: min(100% - 2 * #{$gutter}, #{$max-width});
+    margin-inline: auto;
+}
+
+// ---------- Page ----------
+
+// Main grows to fill the window, so the footer sits at the bottom on short pages
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+// ---------- Header ----------
+
+.site-header {
+    @extend %container;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "logo share"
+        "nav  nav";
+    align-items: center;
+    gap: $space-2xs $space-s;
+    margin-top: $space-s;
+    padding: $space-2xs $space-s;
+    background-color: $bg;
+    border: $border-width solid $border;
+    border-radius: $radius-l;
+
+    @media (min-width: $bp-md) {
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: "logo nav share";
+        padding-inline: $space-m;
+    }
+
+    .logo        { grid-area: logo; }
+    nav          { grid-area: nav; }
+    .btn-share   { grid-area: share; }
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    min-height: $tap-target;
+    font-family: $font-heading;
+    font-weight: $weight-heading;
+    font-size: $text-xl;
+    letter-spacing: $tracking-tight;
+    text-decoration: none;
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $space-3xs $space-s;
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        min-height: $tap-target;
+        padding-inline: $space-xs;
+        font-weight: $weight-bold;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+        }
+
+        &[aria-current="page"] {
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+        }
+    }
+}
+
+// ---------- Main ----------
+
+main {
+    @extend %container;
+    display: grid;
+    // minmax(0, …) stops wide content (like the carousel row) from stretching the page
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-section;
+    padding-block: $space-l $space-section;
+}
+
+// Sections stack their heading and content with even spacing
+.featured,
+.topics,
+.about-intro,
+.accessibility,
+.engage,
+.transcript,
+.related {
+    display: flex;
+    flex-direction: column;
+    gap: $space-m;
+}
+
+// ---------- Hero (home) ----------
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    min-height: clamp(26rem, 60vh, 40rem);
+    padding: $space-xl $gutter;
+    overflow: hidden;
+    background-color: $dark-bg;
+    color: $dark-text;
+    text-align: center;
+    border: $border-width solid $border;
+    border-radius: $radius-l;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-color: $hero-overlay;
+    }
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-m;
+    max-width: 50rem;
+
+    h1 {
+        color: $hero-title;
+        font-size: $text-display;
+        line-height: $leading-tight;
+    }
+}
+
+.hero-subtitle {
+    max-width: $max-width-text;
+    font-size: $text-lg;
+}
+
+// ---------- About ----------
+
+.about-intro {
+    align-items: center;
+    max-width: $max-width-text;
+    margin-inline: auto;
+
+    h1,
+    .tagline {
+        text-align: center;
+    }
+}
+
+.tagline {
+    font-size: $text-lg;
+    font-weight: $weight-bold;
+}
+
+.audience {
+    display: grid;
+    gap: $space-l;
+    align-items: center;
+
+    @media (min-width: $bp-md) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.audience-text {
+    display: flex;
+    flex-direction: column;
+    gap: $space-s;
+}
+
+.accessibility > h2,
+.engage > h2 {
+    text-align: center;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: $space-m;
+}
+
+// ---------- Story page ----------
+
+// Phones and tablets: story, then "You might also like" underneath.
+// Laptops and up: story on the left, sidebar on the right.
+.story-layout {
+    @media (min-width: $bp-lg) {
+        grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+        align-items: start;
+        gap: $space-xl;
+    }
+}
+
+.story {
+    display: flex;
+    flex-direction: column;
+    gap: $space-m;
+}
+
+// Title on the left, meta on the right; wraps onto two lines when narrow
+.story-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: $space-2xs $space-m;
+}
+
+.story-description {
+    max-width: $max-width-text;
+    font-size: $text-lg;
+}
+
+// Grid of cards below the story; a single column in the sidebar on laptops
+.related-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+    gap: $space-m;
+
+    @media (min-width: $bp-lg) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// ---------- Footer ----------
+
+.site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: $space-m;
+    padding-block: $space-xl;
+    padding-inline: max(#{$gutter}, (100% - #{$max-width}) / 2);
+    background-color: $dark-bg;
+    color: $dark-text;
+
+    a {
+        color: $dark-link;
+    }
+}
+
+.footer-name {
+    font-family: $font-heading;
+    font-weight: $weight-heading;
+    font-size: $text-xl;
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2xs;
+}
+
+.socials-title {
+    color: $dark-link;
+    font-size: $text-lg;
+    text-transform: uppercase;
+    letter-spacing: $tracking-wide;
+}
+
+.socials-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3xs;
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-2xs;
+        min-height: $tap-target;
+    }
+}
