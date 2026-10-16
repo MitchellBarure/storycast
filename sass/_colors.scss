@@ -1,0 +1,28 @@
+$ink:        #23003F;
+$cream:      #F8F4EC;
+$sky:        #2483E2;
+$lime:       #E6EF5A;
+$tomato:     #F95D35;
+$bubblegum:  #F7BAD8;
+
+$text:        $ink;
+$bg:          $cream;
+$btn-bg:      $tomato;
+$btn-text:    $ink;
+$focus-light: $ink;
+$focus-dark:  $lime;
+
+// Dark areas (footer, hero)
+$dark-bg:      $ink;
+$dark-text:    $cream;
+$dark-link:    $lime;
+$hero-title:   $lime;
+
+// Keep the overlay near-solid so bright photos can't lower the Lime title's contrast
+$hero-overlay: rgba($ink, 0.85);
+
+// Sticker outlines: bright shapes on Cream need an Ink edge to reach 3:1
+$border:       $ink;
+
+// Bright blocks for cards, tiles and stickers. Text on them is always $ink.
+$block-colors: $sky, $lime, $tomato, $bubblegum;
