@@ -1,0 +1,56 @@
+// ---------- Reset ----------
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, h4,
+p,
+figure,
+ul, ol {
+    margin: 0;
+}
+
+// Lists with a class are styled by components.
+ul[class] {
+    list-style: "\200B";
+    padding: 0;
+}
+
+// Make sure the `hidden` attribute always wins (used by the audio/video switch).
+// !important in the first layer beats every later layer.
+[hidden] {
+    display: none !important;
+}
+
+// ---------- Media ----------
+
+img,
+video,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+audio {
+    display: block;
+    width: 100%;
+}
+
+// ---------- Forms ----------
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}

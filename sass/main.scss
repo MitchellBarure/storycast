@@ -1,3 +1,11 @@
-@use "base";
-@use "layout";
-@use "components";
+@use "sass:meta";
+
+// Cascade layers, in order of priority: later layers win over earlier ones,
+// whatever the selector specificity. Each layer is one partial.
+@layer reset, base, layout, components, utilities;
+
+@layer reset      { @include meta.load-css("reset"); }
+@layer base       { @include meta.load-css("base"); }
+@layer layout     { @include meta.load-css("layout"); }
+@layer components { @include meta.load-css("components"); }
+@layer utilities  { @include meta.load-css("utilities"); }

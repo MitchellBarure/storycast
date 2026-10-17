@@ -12,13 +12,15 @@ storycast/
 ├── css/
 │   └── main.css          Compiled stylesheet (generated from sass/, do not edit by hand)
 ├── sass/
-│   ├── main.scss         Entry point: loads base, layout and components
+│   ├── main.scss         Entry point: declares the cascade layers and loads each partial into one
 │   ├── _colors.scss      Colour tokens (Ink, Cream, Sky, Lime, Tomato, Bubblegum)
 │   ├── _typography.scss  Fonts, type scale, line heights, letter spacing
 │   ├── _spacing.scss     Spacing scale, widths, radii, borders, breakpoints
-│   ├── _base.scss        Reset, page defaults, focus styles, accessibility helpers
+│   ├── _reset.scss       Box sizing, margins, media and form defaults
+│   ├── _base.scss        Page, text and link defaults, focus styles, skip link, motion
 │   ├── _layout.scss      Header, hero, page grids, footer
-│   └── _components.scss  Buttons, story and topic cards, carousel, media
+│   ├── _components.scss  Buttons, story and topic cards, carousel, icons, media
+│   └── _utilities.scss   Single-purpose helpers (visually-hidden)
 ├── js/
 │   └── main.js           Story data and the story page switcher
 ├── assets/
@@ -42,6 +44,16 @@ CSS classes follow BEM (Block, Element, Modifier):
 | Modifier: a variation | `block--modifier` | `btn--primary`, `format-label--highlight`, `icon-badge--abroad` |
 
 Elements get their own class instead of being styled through tag selectors (`.hero__title`, not `.hero h1`), so styles don't depend on the HTML structure. Utility classes (`visually-hidden`, `skip-link`) are the only exceptions.
+
+### Cascade layers
+
+`sass/main.scss` puts each partial in its own cascade layer:
+
+```scss
+@layer reset, base, layout, components, utilities;
+```
+
+A later layer always wins over an earlier one, whatever the selector specificity. So a component's styles reliably override the reset and base styles, and `.visually-hidden` in the last layer can never be undone by a component. The token partials (`_colors`, `_typography`, `_spacing`) output no CSS; each layer partial loads the tokens it needs with `@use`.
 
 ### How the story page works
 
