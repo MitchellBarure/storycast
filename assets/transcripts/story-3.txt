@@ -1,1 +1,29 @@
-Transcript coming soon.
+Building AmaiReady: An App for Expecting Mothers
+
+Hi, this is Michelle. So I will be presenting my final software prototype, which
+is AmaiReady. So Amai is a Shona word for mother, but it also sounds like MI.
+And that's very intentional because AmaiReady is a maternal delivery preparation
+and support system designed for pregnant women living in rural communities in
+Zimbabwe.
+
+So what exactly is the problem? Many pregnant women struggle to prepare all the
+supplies that they need for delivery. Some are asked to source maternity kit
+items themselves. This includes gloves, cotton wool, maternity pads, and
+additionally, access to clinics may also be affected by distance, cost, and
+limited information.
+
+So mothers may not know what items are still missing, which clinic is the
+nearest to them, or where to request for help. So why exactly is this a problem?
+Missing supplies delay delivery preparation. So this means that mothers would
+only discover missing items close to their delivery date.
+
+Information is often then scattered between clinic visits, paper records,
+sometimes even verbal instructions. And support administrators may also struggle
+to track requests consistently. So this then creates stress during a period that
+is already vulnerable for pregnant women. So this is the problem that AmaiReady
+aims to solve.
+
+So AmaiReady brings the main preparation tasks into one system. This is where
+now you will see a mother can register, log in, and create her pregnancy
+profile, make requests, and so forth. And on the other hand, the administrator
+can log in securely, review the support requests.

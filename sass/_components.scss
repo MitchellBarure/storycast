@@ -330,15 +330,22 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
 .story-video video,
 .story-cover {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
     background-color: $dark-bg;
     border: $border-width solid $border;
     border-radius: $radius-l;
     box-shadow: $sticker-shadow;
 }
 
+// Videos keep their own shape (stories 1 and 2 are portrait). Never crop:
+// tall videos are capped at 80% of the screen height and sit on Ink.
+.story-video video {
+    max-height: 80vh;
+    object-fit: contain;
+}
+
 .story-cover {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     background-color: $bubblegum;
 }
 

@@ -1,1 +1,50 @@
-Transcript coming soon.
+Why My Website Needed a CDN
+
+
+OK, so I think it's going to be best if you have a CDN in between your service
+and your website. So like your website, I don't know what I'm saying anymore.
+But it's going to be using static assets, so every time you reload, you sort of
+have to fetch the images and it's slow. But if that's not possible, like you
+cannot get a CDN.
+
+What you should do is, you should use Tom Ash, and what that does is basically
+it gives you a good enough place order like this, like a nice gradient before
+the image loads. So it's giving like an intermediary for the image loads. I know
+it's using Next.js. Next.js has a way for you to have like a place order for the
+images.
+
+So this, OK, let me see. Next image. There is a way for you to use the image
+component. So you can use Tom Ash directly using this extension.
+
+So you can see the reload. So even though the image is not good yet, you can see
+at least you have something in the intermediary. Everything is not blank and
+they don't look at the place. And there is the blow data area.
+
+I think this uses something else. But yes, you can now blow images, so like a
+place order, blow images with the next image. Yeah, just find it to balance,
+make the image look faster. At least feel, because if I were to, I will just
+show you how you see this live from direct.
+
+Empty cache, add reload. So this is going to be my first experience as a user.
+What I see is blank, blank, blank. Let me just come in and take you through my
+style.
+
+And next, if you look at the images, all these images, PNGs are similar. Look at
+this single image, for example. It is 2.7 mb, one single image. If you use WebP,
+there's a different format.
+
+It's real life supported by most web browsers. So you can say, can I use WebP?
+So you can check the can I use format. You can see all the major browser
+supports it.
+
+So in spite of the baseline, I was going to give you faster images, the faster
+you can have, like, some, like, gifts too with WebP. So, yeah, that's a simple
+command using a sharp, sharp is like an image presence in the library. All
+right, you get us to that, and it's going to do for you at build time or at real
+time. So in real time, it's not possible real time, but like at build time, when
+you build the application, it's going to convert into WebP.
+
+But, yeah, I think they made a smart decision, not using, like, next image,
+process everything, which is good, but it also comes with downsides. So just
+find your trademark, or is it trademark, or what is it called? Yeah, this is
+amazing. Kudos to the developers.

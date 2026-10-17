@@ -1,11 +1,3 @@
-// Story data. Keep in sync with the story cards in index.html.
-// Media files follow one naming pattern per story number N:
-//   video:      assets/video/story-N.mp4
-//   captions:   assets/captions/story-N-en.vtt
-//   audio:      assets/audio/story-N.mp3
-//   poster:     assets/images/story-N-poster.jpg  (video poster, or cover image for audio)
-//   thumbnail:  assets/images/story-N-thumb.jpg
-//   transcript: assets/transcripts/story-N.txt
 const STORIES = {
     1: {
         title: "Where I Come From, and Where I'm Going",
@@ -42,8 +34,8 @@ const STORIES = {
     5: {
         title: "Why My Website Needed a CDN",
         format: "Audio",
-        duration: "3:20",
-        datetime: "PT3M20S",
+        duration: "3:31",
+        datetime: "PT3M31S",
         location: "Kigali, Rwanda",
         description: "Description coming soon." // TODO: add description
     }
@@ -82,7 +74,7 @@ function initStoryPage() {
     const audioFigure = page.querySelector('[data-media="audio"]');
     const activeFigure = isAudio ? audioFigure : videoFigure;
     const player = activeFigure.querySelector("video, audio");
-    const mediaSrc = isAudio ? `assets/audio/story-${id}.mp3` : `assets/video/story-${id}.mp4`;
+    const mediaSrc = isAudio ? `assets/audio/story-${id}.m4a` : `assets/video/story-${id}.mp4`;
     const poster = `assets/images/story-${id}-poster.jpg`;
 
     // Pause and hide the player that isn't used, then show the right one

@@ -25,8 +25,7 @@ ul[class] {
 html {
   color-scheme: light;
   -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-       text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -75,11 +74,6 @@ a {
 }
 a:hover {
   text-decoration-thickness: 3px;
-}
-
-::-moz-selection {
-  background-color: #E6EF5A;
-  color: #23003F;
 }
 
 ::selection {
@@ -296,8 +290,7 @@ main {
   z-index: -2;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hero-content {
@@ -514,8 +507,7 @@ main {
 .story-card img {
   width: 100%;
   aspect-ratio: 16/9;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   background-color: rgba(35, 0, 63, 0.12);
   border: 3px solid #23003F;
   border-radius: 0.5rem;
@@ -774,8 +766,7 @@ li:nth-child(4n+4) > .story-card {
 .audience-photo img {
   width: 100%;
   aspect-ratio: 4/3;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   background-color: #F7BAD8;
   border: 3px solid #23003F;
   border-radius: 1.5rem;
@@ -790,16 +781,20 @@ li:nth-child(4n+4) > .story-card {
 .story-video video,
 .story-cover {
   width: 100%;
-  aspect-ratio: 16/9;
-  -o-object-fit: cover;
-     object-fit: cover;
   background-color: #23003F;
   border: 3px solid #23003F;
   border-radius: 1.5rem;
   box-shadow: 4px 4px 0 #23003F;
 }
 
+.story-video video {
+  max-height: 80vh;
+  object-fit: contain;
+}
+
 .story-cover {
+  aspect-ratio: 16/9;
+  object-fit: cover;
   background-color: #F7BAD8;
 }
 

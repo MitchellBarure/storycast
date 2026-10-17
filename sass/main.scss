@@ -1,7 +1,3 @@
-// Entry point: Live Sass Compiler compiles this file to css/main.css.
-// Token partials (_colors, _typography, _spacing) output no CSS on their own.
-// Each partial that needs them loads them itself, e.g. `@use "colors" as *;`
-
 @use "base";
 @use "layout";
 @use "components";
