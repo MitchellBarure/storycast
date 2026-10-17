@@ -2,6 +2,13 @@
 
 A small, accessible storytelling site of video and audio stories about studying abroad, surviving uni, learning to code and making friends as an adult. It's built with semantic HTML5, Sass and a small amount of vanilla JavaScript, with no frameworks or build tools.
 
+## Links
+
+- Wireframes: [Figma](https://www.figma.com/design/mUABK9GovTvOuVWGhHnpif/StoryCast--Mockups?node-id=2-833)
+- High-fidelity mockups: [Figma](https://www.figma.com/design/mUABK9GovTvOuVWGhHnpif/StoryCast--Mockups?node-id=0-1)
+- Research document: [research-document.pdf](research-document.pdf)
+- Documentation: [documentation.pdf](documentation.pdf)
+
 ## Project structure
 
 ```
@@ -9,6 +16,7 @@ storycast/
 ├── index.html            Home: hero, featured stories carousel, topics
 ├── about.html            About: why I started, who it's for, accessibility, how to engage
 ├── research-document.pdf  Research document
+├── documentation.pdf      Project documentation
 ├── story/
 │   └── story.html        Story page: one template for all 5 stories (?story=1 to ?story=5)
 ├── css/
