@@ -7,7 +7,6 @@ A small, accessible storytelling site of video and audio stories about studying 
 - Wireframes: [Figma](https://www.figma.com/design/mUABK9GovTvOuVWGhHnpif/StoryCast--Mockups?node-id=2-833)
 - High-fidelity mockups: [Figma](https://www.figma.com/design/mUABK9GovTvOuVWGhHnpif/StoryCast--Mockups?node-id=0-1)
 - Research document: [research-document.pdf](research-document.pdf)
-- Documentation: [documentation.pdf](documentation.pdf)
 
 ## Project structure
 
