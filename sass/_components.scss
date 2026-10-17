@@ -201,16 +201,6 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     }
 }
 
-// Placeholder circle until the topic icons are added
-.topic-icon {
-    display: block;
-    width: 3rem;
-    height: 3rem;
-    background-color: $cream;
-    border: $border-width solid $border;
-    border-radius: 50%;
-}
-
 .topic-card-title {
     font-size: $text-xl;
 
@@ -255,15 +245,65 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     }
 }
 
-// Placeholder circle until real icons are added
+// ---------- Icons ----------
+
+// Cream sticker circle with an Ink icon inside. The SVG is used as a mask,
+// so the icon takes the Ink colour whatever colour the file was drawn in.
+.topic-icon,
 .feature-icon {
-    display: block;
-    width: 3rem;
-    height: 3rem;
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
     background-color: $cream;
     border: $border-width solid $border;
     border-radius: 50%;
+
+    &::before {
+        content: "";
+        width: 60%;
+        height: 60%;
+        background-color: $ink;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+
+        // Windows High Contrast: draw the icon in the system text colour
+        @media (forced-colors: active) {
+            forced-color-adjust: none;
+            background-color: CanvasText;
+        }
+    }
 }
+
+$icons: abroad "topic-abroad", uni "topic-uni", code "topic-code", friends "topic-friends",
+        captions "feature-captions", screen-reader "feature-screen-reader", keyboard "feature-keyboard";
+
+@each $name, $file in $icons {
+    .icon-#{$name}::before {
+        mask-image: url("../assets/icons/#{$file}.svg");
+    }
+}
+
+// Footer social icons: drawn in the link colour (Lime on the Ink footer)
+.social-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 1.25em;
+    height: 1.25em;
+    background-color: currentColor;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+
+    @media (forced-colors: active) {
+        forced-color-adjust: none;
+        background-color: LinkText;
+    }
+}
+
+.social-icon.icon-github    { mask-image: url("../assets/icons/icon-github.svg"); }
+.social-icon.icon-instagram { mask-image: url("../assets/icons/icon-instagram.svg"); }
 
 // ---------- How to engage steps ----------
 

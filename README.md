@@ -26,7 +26,8 @@ storycast/
 │   ├── audio/            story-4.m4a, story-5.m4a
 │   ├── captions/         WebVTT captions for the videos (story-N-en.vtt)
 │   ├── transcripts/      Plain-text transcripts for every story (story-N.txt)
-│   └── images/           Hero, About photo, story posters and thumbnails
+│   ├── images/           Hero, About photo, story posters and thumbnails
+│   └── icons/            SVG icons for the topic and accessibility cards
 └── .vscode/settings.json Live Sass Compiler output settings
 ```
 
@@ -76,7 +77,8 @@ The goal is WCAG 2.2 level AA. This is how each requirement is met.
 
 - [x] Meaningful images have descriptive `alt` text (the About page group photo)
 - [x] Decorative images use `alt=""` (the hero background, card thumbnails and audio covers, which sit next to a title that already names the story)
-- [x] Decorative symbols such as arrows and dots are hidden with `aria-hidden="true"`
+- [x] Decorative symbols such as arrows, dots and card icons are hidden with `aria-hidden="true"`
+- [x] Card icons stay visible in Windows High Contrast mode (`forced-colors`)
 
 ### Colour and contrast
 
