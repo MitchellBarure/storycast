@@ -110,11 +110,13 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
 
 // Focus outline goes around the whole card instead of only the title text
 @supports selector(:has(*)) {
-    .story-card-title a:focus-visible {
+    .story-card-title a:focus-visible,
+    .topic-card-title a:focus-visible {
         outline: none;
     }
 
-    .story-card:has(a:focus-visible) {
+    .story-card:has(a:focus-visible),
+    .topic-card:has(a:focus-visible) {
         outline: $focus-width solid $focus-light;
         outline-offset: $focus-offset;
     }
@@ -171,34 +173,66 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     }
 }
 
-// ---------- Topic chips ----------
+// ---------- Topic cards ----------
 
+// As many cards per row as fit, each at least 14rem wide
 .topic-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $space-s;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: $space-m;
 }
 
-.topic-chip {
-    display: inline-flex;
-    align-items: center;
-    min-height: $tap-target;
-    padding: $space-2xs $space-m;
-    color: $ink;
-    font-weight: $weight-bold;
-    text-decoration: none;
+.topic-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+    height: 100%;
+    padding: $space-m;
     border: $border-width solid $border;
-    border-radius: $radius-pill;
+    border-radius: $radius-l;
     box-shadow: $sticker-shadow;
     @include lift;
 }
 
+// Same colour order as the story cards, but starting from Bubblegum for variety
 @each $color in $block-colors {
     $i: list.index($block-colors, $color);
 
-    .topic-list > li:nth-child(4n + #{$i}) .topic-chip {
+    .topic-list > li:nth-child(4n + #{($i % 4) + 1}) > .topic-card {
         background-color: $color;
     }
+}
+
+// Placeholder circle until the topic icons are added
+.topic-icon {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    background-color: $cream;
+    border: $border-width solid $border;
+    border-radius: 50%;
+}
+
+.topic-card-title {
+    font-size: $text-xl;
+
+    a {
+        text-decoration: none;
+
+        // Whole card is clickable; the topic name stays the link's accessible name
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+        }
+    }
+}
+
+.topic-card-story {
+    font-size: $text-sm;
+    font-weight: $weight-bold;
 }
 
 // ---------- Feature cards (About) ----------

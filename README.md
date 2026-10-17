@@ -18,7 +18,7 @@ storycast/
 │   ├── _spacing.scss     Spacing scale, widths, radii, borders, breakpoints
 │   ├── _base.scss        Reset, page defaults, focus styles, accessibility helpers
 │   ├── _layout.scss      Header, hero, page grids, footer
-│   └── _components.scss  Buttons, story cards, carousel, chips, media
+│   └── _components.scss  Buttons, story and topic cards, carousel, media
 ├── js/
 │   └── main.js           Story data and the story page switcher
 ├── assets/

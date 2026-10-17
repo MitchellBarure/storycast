@@ -543,10 +543,12 @@ li:nth-child(4n+4) > .story-card {
 }
 
 @supports selector(:has(*)) {
-  .story-card-title a:focus-visible {
+  .story-card-title a:focus-visible,
+  .topic-card-title a:focus-visible {
     outline: none;
   }
-  .story-card:has(a:focus-visible) {
+  .story-card:has(a:focus-visible),
+  .topic-card:has(a:focus-visible) {
     outline: 3px solid #23003F;
     outline-offset: 3px;
   }
@@ -597,51 +599,77 @@ li:nth-child(4n+4) > .story-card {
 }
 
 .topic-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1.5rem;
 }
 
-.topic-chip {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  padding: 0.5rem 1.5rem;
-  color: #23003F;
-  font-weight: 700;
-  text-decoration: none;
+.topic-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 1.5rem;
   border: 3px solid #23003F;
-  border-radius: 999px;
+  border-radius: 1.5rem;
   box-shadow: 4px 4px 0 #23003F;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .topic-chip {
+  .topic-card {
     transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
   }
 }
-.topic-chip:hover {
+.topic-card:hover {
   transform: translate(-2px, -2px);
   box-shadow: 8px 8px 0 #23003F;
 }
-.topic-chip:active {
+.topic-card:active {
   transform: translate(2px, 2px);
   box-shadow: none;
 }
 
-.topic-list > li:nth-child(4n+1) .topic-chip {
+.topic-list > li:nth-child(4n+2) > .topic-card {
   background-color: #2483E2;
 }
 
-.topic-list > li:nth-child(4n+2) .topic-chip {
+.topic-list > li:nth-child(4n+3) > .topic-card {
   background-color: #E6EF5A;
 }
 
-.topic-list > li:nth-child(4n+3) .topic-chip {
+.topic-list > li:nth-child(4n+4) > .topic-card {
   background-color: #F95D35;
 }
 
-.topic-list > li:nth-child(4n+4) .topic-chip {
+.topic-list > li:nth-child(4n+1) > .topic-card {
   background-color: #F7BAD8;
+}
+
+.topic-icon {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  background-color: #F8F4EC;
+  border: 3px solid #23003F;
+  border-radius: 50%;
+}
+
+.topic-card-title {
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.625rem);
+}
+.topic-card-title a {
+  text-decoration: none;
+}
+.topic-card-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.topic-card-story {
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 .feature-card {
