@@ -98,7 +98,6 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     a {
         text-decoration: none;
 
-        // Makes the whole card clickable, while the link text stays the accessible name
         &::after {
             content: "";
             position: absolute;
@@ -150,7 +149,6 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     border-radius: $radius-pill;
 }
 
-// On the story page the label sits on Cream, so make it Lime to stand out
 .story-meta .story-card-format {
     background-color: $lime;
 }
@@ -195,7 +193,6 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     @include lift;
 }
 
-// Same colour order as the story cards, but starting from Bubblegum for variety
 @each $color in $block-colors {
     $i: list.index($block-colors, $color);
 
@@ -220,7 +217,6 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     a {
         text-decoration: none;
 
-        // Whole card is clickable; the topic name stays the link's accessible name
         &::after {
             content: "";
             position: absolute;
@@ -361,7 +357,5 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     flex-direction: column;
     gap: $space-s;
 }
-
-// ---------- Transcript ----------
 
 
