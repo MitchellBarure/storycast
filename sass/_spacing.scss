@@ -37,3 +37,7 @@ $tap-target: 2.75rem;
 $bp-sm: 40em;  //  large phones
 $bp-md: 48em;  //  tablets
 $bp-lg: 64em;  //  laptops and up
+
+// Container query breakpoint: "You might also like" switches from a compact
+// list to a grid of cards once its own box (not the screen) is this wide
+$cq-related-grid: 36rem;

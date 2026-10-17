@@ -143,6 +143,33 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     font-size: $text-sm;
 }
 
+// Compact card when "You might also like" is narrow: thumbnail beside the
+// title instead of above it, so the list stays short in the sidebar
+@container related (max-width: #{$cq-related-grid - 0.01rem}) {
+    .story-card {
+        display: grid;
+        grid-template-columns: minmax(6rem, 40%) 1fr;
+        grid-template-rows: auto auto;
+        column-gap: $space-s;
+        row-gap: $space-3xs;
+        align-content: center;
+    }
+
+    .story-card__image {
+        grid-row: 1 / span 2;
+        align-self: center;
+    }
+
+    .story-card__title {
+        align-self: end;
+        font-size: $text-base;
+    }
+
+    .story-card__meta {
+        align-self: start;
+    }
+}
+
 // Small sticker label: Video / Audio
 .format-label {
     display: inline-block;
@@ -286,7 +313,7 @@ $icons: abroad "topic-abroad", uni "topic-uni", code "topic-code", friends "topi
     }
 }
 
-// Footer social icons: drawn in the link colour (Lime on the Ink footer)
+// Footer social icons: drawn in the link colour 
 .social-icon {
     display: inline-block;
     flex-shrink: 0;
@@ -305,6 +332,7 @@ $icons: abroad "topic-abroad", uni "topic-uni", code "topic-code", friends "topi
 
 .social-icon--github    { mask-image: url("../assets/icons/icon-github.svg"); }
 .social-icon--instagram { mask-image: url("../assets/icons/icon-instagram.svg"); }
+
 
 // ---------- How to engage steps ----------
 

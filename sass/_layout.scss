@@ -299,14 +299,21 @@ main > .hero {
     font-size: $text-lg;
 }
 
-// Grid of cards below the story; a single column in the sidebar on laptops
+// "You might also like" responds to its own width, not the screen's:
+// it's a narrow sidebar on laptops but full width below the story on tablets
+.related {
+    container: related / inline-size;
+}
+
+// Narrow (sidebar, phones): one column of compact cards.
+// Wide (below the story on tablets): a grid of full cards.
 .related__list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+    grid-template-columns: 1fr;
     gap: $space-m;
 
-    @media (min-width: $bp-lg) {
-        grid-template-columns: 1fr;
+    @container related (min-width: #{$cq-related-grid}) {
+        grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
     }
 }
 
