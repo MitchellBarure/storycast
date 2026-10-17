@@ -31,6 +31,18 @@ storycast/
 └── .vscode/settings.json Live Sass Compiler output settings
 ```
 
+### Naming: BEM
+
+CSS classes follow BEM (Block, Element, Modifier):
+
+| Part | Pattern | Example |
+|---|---|---|
+| Block: a standalone component | `block` | `story-card`, `hero`, `site-header` |
+| Element: a part of a block | `block__element` | `story-card__title`, `hero__actions` |
+| Modifier: a variation | `block--modifier` | `btn--primary`, `format-label--highlight`, `icon-badge--abroad` |
+
+Elements get their own class instead of being styled through tag selectors (`.hero__title`, not `.hero h1`), so styles don't depend on the HTML structure. Utility classes (`visually-hidden`, `skip-link`) are the only exceptions.
+
 ### How the story page works
 
 There is one story page, `story.html`. Each story card links to `story.html?story=N`. `js/main.js` holds the details of all 5 stories and, based on `N`:

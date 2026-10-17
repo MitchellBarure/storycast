@@ -24,6 +24,19 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     }
 }
 
+// Card title link that makes the whole card clickable, while the
+// title text stays the link's accessible name
+%stretched-link {
+    text-decoration: none;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+    }
+}
+
 // ---------- Buttons ----------
 
 // Tomato with Ink text (5.8:1). 
@@ -44,12 +57,13 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     @include lift;
 }
 
-.btn-primary {
+.btn--primary {
     padding-inline: $space-l;
     font-size: $text-lg;
 }
 
-.hero .btn {
+// On the Ink hero a Lime shadow keeps the button popping
+.btn--on-dark {
     box-shadow: $shadow-offset $shadow-offset 0 $lime;
 
     &:hover {
@@ -71,58 +85,52 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     border-radius: $radius-m;
     box-shadow: $sticker-shadow;
     @include lift;
+}
 
-    img {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        // Shows as a soft block until the thumbnail exists
-        background-color: rgba($ink, 0.12);
-        border: $border-width solid $border;
-        border-radius: $radius-s;
-    }
+.story-card__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    // Shows as a soft block until the thumbnail exists
+    background-color: rgba($ink, 0.12);
+    border: $border-width solid $border;
+    border-radius: $radius-s;
 }
 
 // Cards cycle through the bright colours: Sky, Lime, Tomato, Bubblegum
 @each $color in $block-colors {
     $i: list.index($block-colors, $color);
 
-    li:nth-child(4n + #{$i}) > .story-card {
+    .carousel__item:nth-child(4n + #{$i}) > .story-card,
+    .related__item:nth-child(4n + #{$i}) > .story-card {
         background-color: $color;
     }
 }
 
-.story-card-title {
+.story-card__title {
     font-size: $text-lg;
+}
 
-    a {
-        text-decoration: none;
-
-        &::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-        }
-    }
+.story-card__link {
+    @extend %stretched-link;
 }
 
 // Focus outline goes around the whole card instead of only the title text
 @supports selector(:has(*)) {
-    .story-card-title a:focus-visible,
-    .topic-card-title a:focus-visible {
+    .story-card__link:focus-visible,
+    .topic-card__link:focus-visible {
         outline: none;
     }
 
-    .story-card:has(a:focus-visible),
-    .topic-card:has(a:focus-visible) {
+    .story-card:has(.story-card__link:focus-visible),
+    .topic-card:has(.topic-card__link:focus-visible) {
         outline: $focus-width solid $focus-light;
         outline-offset: $focus-offset;
     }
 }
 
-.story-card-meta,
-.story-meta {
+.story-card__meta,
+.story__meta {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -131,12 +139,12 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     font-weight: $weight-bold;
 }
 
-.story-card-location {
+.story-card__location {
     font-size: $text-sm;
 }
 
 // Small sticker label: Video / Audio
-.story-card-format {
+.format-label {
     display: inline-block;
     padding: 0.1em $space-2xs;
     background-color: $cream;
@@ -149,14 +157,15 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     border-radius: $radius-pill;
 }
 
-.story-meta .story-card-format {
+// On the story page the label sits on Cream, so it's Lime to stand out
+.format-label--highlight {
     background-color: $lime;
 }
 
 // ---------- Carousel ----------
 
 // Swipe or scroll sideways; cards snap into place.
-.carousel-track {
+.carousel__track {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: min(85%, 20rem);
@@ -165,10 +174,10 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
     scroll-snap-type: x mandatory;
     padding: $space-2xs $space-2xs $space-m;
     margin-inline: -$space-2xs;
+}
 
-    > li {
-        scroll-snap-align: start;
-    }
+.carousel__item {
+    scroll-snap-align: start;
 }
 
 // ---------- Topic cards ----------
@@ -196,27 +205,20 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
 @each $color in $block-colors {
     $i: list.index($block-colors, $color);
 
-    .topic-list > li:nth-child(4n + #{($i % 4) + 1}) > .topic-card {
+    .topic-list__item:nth-child(4n + #{($i % 4) + 1}) > .topic-card {
         background-color: $color;
     }
 }
 
-.topic-card-title {
+.topic-card__title {
     font-size: $text-xl;
-
-    a {
-        text-decoration: none;
-
-        &::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-        }
-    }
 }
 
-.topic-card-story {
+.topic-card__link {
+    @extend %stretched-link;
+}
+
+.topic-card__story {
     font-size: $text-sm;
     font-weight: $weight-bold;
 }
@@ -249,8 +251,7 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
 
 // Cream sticker circle with an Ink icon inside. The SVG is used as a mask,
 // so the icon takes the Ink colour whatever colour the file was drawn in.
-.topic-icon,
-.feature-icon {
+.icon-badge {
     display: grid;
     place-items: center;
     width: 3.5rem;
@@ -280,7 +281,7 @@ $icons: abroad "topic-abroad", uni "topic-uni", code "topic-code", friends "topi
         captions "feature-captions", screen-reader "feature-screen-reader", keyboard "feature-keyboard";
 
 @each $name, $file in $icons {
-    .icon-#{$name}::before {
+    .icon-badge--#{$name}::before {
         mask-image: url("../assets/icons/#{$file}.svg");
     }
 }
@@ -302,8 +303,8 @@ $icons: abroad "topic-abroad", uni "topic-uni", code "topic-code", friends "topi
     }
 }
 
-.social-icon.icon-github    { mask-image: url("../assets/icons/icon-github.svg"); }
-.social-icon.icon-instagram { mask-image: url("../assets/icons/icon-instagram.svg"); }
+.social-icon--github    { mask-image: url("../assets/icons/icon-github.svg"); }
+.social-icon--instagram { mask-image: url("../assets/icons/icon-instagram.svg"); }
 
 // ---------- How to engage steps ----------
 
@@ -315,65 +316,65 @@ $icons: abroad "topic-abroad", uni "topic-uni", code "topic-code", friends "topi
     padding: 0;
     list-style: "\200B";  
     counter-reset: step;
+}
 
-    li {
-        position: relative;
-        min-height: 3rem;
-        padding-left: 4rem;
-        counter-increment: step;
+.steps__item {
+    position: relative;
+    min-height: 3rem;
+    padding-left: 4rem;
+    counter-increment: step;
 
-        // Big numbered sticker
-        &::before {
-            content: counter(step);
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: grid;
-            place-items: center;
-            width: 3rem;
-            height: 3rem;
-            background-color: $lime;
-            color: $ink;
-            font-family: $font-heading;
-            font-weight: $weight-heading;
-            font-size: $text-xl;
-            border: $border-width solid $border;
-            border-radius: 50%;
-            box-shadow: $sticker-shadow;
-        }
+    // Big numbered sticker
+    &::before {
+        content: counter(step);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: grid;
+        place-items: center;
+        width: 3rem;
+        height: 3rem;
+        background-color: $lime;
+        color: $ink;
+        font-family: $font-heading;
+        font-weight: $weight-heading;
+        font-size: $text-xl;
+        border: $border-width solid $border;
+        border-radius: 50%;
+        box-shadow: $sticker-shadow;
     }
 }
 
 // ---------- About photo ----------
 
-.audience-photo {
+.audience__photo {
     display: flex;
     flex-direction: column;
     gap: $space-xs;
+}
 
-    img {
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        object-fit: cover;
-        // The photo is tall: crop from near the top so no one's head is cut off
-        object-position: 50% 30%;
-        background-color: $bubblegum;
-        border: $border-width solid $border;
-        border-radius: $radius-l;
-        box-shadow: $sticker-shadow;
-        transform: rotate(-1.5deg);
-    }
+.audience__image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    // The photo is tall: crop from near the top so no one's head is cut off
+    object-position: 50% 30%;
+    background-color: $bubblegum;
+    border: $border-width solid $border;
+    border-radius: $radius-l;
+    box-shadow: $sticker-shadow;
+    transform: rotate(-1.5deg);
+}
 
-    figcaption {
-        font-size: $text-sm;
-        text-align: center;
-    }
+.audience__caption {
+    font-size: $text-sm;
+    text-align: center;
 }
 
 // ---------- Story media ----------
 
-.story-video video,
-.story-cover {
+.story__video .story__player,
+.story__cover {
     width: 100%;
     background-color: $dark-bg;
     border: $border-width solid $border;
@@ -383,18 +384,18 @@ $icons: abroad "topic-abroad", uni "topic-uni", code "topic-code", friends "topi
 
 // Videos keep their own shape (stories 1 and 2 are portrait). Never crop:
 // tall videos are capped at 80% of the screen height and sit on Ink.
-.story-video video {
+.story__video .story__player {
     max-height: 80vh;
     object-fit: contain;
 }
 
-.story-cover {
+.story__cover {
     aspect-ratio: 16 / 9;
     object-fit: cover;
     background-color: $bubblegum;
 }
 
-.story-audio {
+.story__audio {
     display: flex;
     flex-direction: column;
     gap: $space-s;

@@ -67,12 +67,12 @@ function pickRelated(currentId) {
 // Fill one story card (cloned from the existing markup) with a story's details
 function fillStoryCard(card, id) {
     const story = STORIES[id];
-    const link = card.querySelector(".story-card-title a");
+    const link = card.querySelector(".story-card__link");
 
     card.querySelector("img").src = `assets/images/story-${id}-thumb.jpg`;
     link.href = `story.html?story=${id}`;
     link.textContent = story.title;
-    card.querySelector(".story-card-format").textContent = story.format;
+    card.querySelector(".format-label").textContent = story.format;
 
     const time = card.querySelector("time");
     time.dateTime = story.datetime;
@@ -127,7 +127,7 @@ function initStoryPage() {
     page.querySelector("[data-transcript]").href = `assets/transcripts/story-${id}.txt`;
 
     // "You might also like": the other stories, in order, reusing the first card as a template
-    const relatedList = page.querySelector(".related-list");
+    const relatedList = page.querySelector(".related__list");
     const template = relatedList.querySelector("li");
     const relatedIds = pickRelated(id);
     relatedList.replaceChildren(...relatedIds.map((key) => {

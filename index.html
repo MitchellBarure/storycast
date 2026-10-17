@@ -13,36 +13,36 @@
     <script src="js/main.js" defer></script>
 </head>
 <!-- "home" lets the header float over the full-width hero -->
-<body class="home">
+<body class="page page--home">
 
     <!-- First focusable element: lets keyboard users jump past the nav -->
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <header class="site-header">
-        <a class="logo" href="index.html">StoryCast</a>
+        <a class="site-header__logo" href="index.html">StoryCast</a>
 
-        <nav aria-label="Main">
-            <ul class="nav-list">
-                <li><a href="index.html" aria-current="page">Home</a></li>
-                <li><a href="story.html">Stories</a></li>
-                <li><a href="about.html">About</a></li>
+        <nav class="site-nav" aria-label="Main">
+            <ul class="site-nav__list">
+                <li><a class="site-nav__link" href="index.html" aria-current="page">Home</a></li>
+                <li><a class="site-nav__link" href="story.html">Stories</a></li>
+                <li><a class="site-nav__link" href="about.html">About</a></li>
             </ul>
         </nav>
 
-        <a class="btn btn-say-hi" href="#say-hi">Say hi</a>
+        <a class="btn site-header__say-hi" href="#say-hi">Say hi</a>
     </header>
 
     <main id="main" tabindex="-1">
 
         <section class="hero" aria-labelledby="hero-title">
-            <img src="assets/images/hero.jpg" class="hero-image" alt="">
-            <div class="hero-content">
-                <h1 id="hero-title">StoryCast: Adulting with Mitchie</h1>
-                <p class="hero-subtitle">Real stories about studying abroad, surviving uni, learning to code, and making friends as an adult.</p>
+            <img src="assets/images/hero.jpg" class="hero__image" alt="">
+            <div class="hero__content">
+                <h1 id="hero-title" class="hero__title">StoryCast: Adulting with Mitchie</h1>
+                <p class="hero__subtitle">Real stories about studying abroad, surviving uni, learning to code, and making friends as an adult.</p>
                 <!-- Two ways in: a video story and an audio story. The hidden text completes each link's name. -->
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="story.html?story=1">Watch<span class="visually-hidden"> a video story</span></a>
-                    <a class="btn btn-primary" href="story.html?story=4">Listen<span class="visually-hidden"> to an audio story</span></a>
+                <div class="hero__actions">
+                    <a class="btn btn--primary btn--on-dark" href="story.html?story=1">Watch<span class="visually-hidden"> a video story</span></a>
+                    <a class="btn btn--primary btn--on-dark" href="story.html?story=4">Listen<span class="visually-hidden"> to an audio story</span></a>
                 </div>
             </div>
         </section>
@@ -53,73 +53,73 @@
             <!-- Carousel: no autoplay, no buttons. Swipe, scroll sideways, or Tab through the cards.
                  Video and audio alternate so both formats are visible straight away. -->
             <div class="carousel">
-                <ul id="featured-track" class="carousel-track">
-                    <li>
+                <ul id="featured-track" class="carousel__track">
+                    <li class="carousel__item">
                         <article class="story-card">
-                            <img src="assets/images/story-1-thumb.jpg" alt="">
-                            <h3 class="story-card-title"><a href="story.html?story=1">Where I Come From, and Where I'm Going</a></h3>
-                            <p class="story-card-meta">
-                                <span class="story-card-format">Video</span>
+                            <img class="story-card__image" src="assets/images/story-1-thumb.jpg" alt="">
+                            <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=1">Where I Come From, and Where I'm Going</a></h3>
+                            <p class="story-card__meta">
+                                <span class="format-label">Video</span>
                                 <span aria-hidden="true">&middot;</span>
                                 <span class="visually-hidden">Duration: </span><time datetime="PT3M34S">3:34</time>
                             </p>
-                            <p class="story-card-location">
+                            <p class="story-card__location">
                                 <span class="visually-hidden">Location: </span>African Leadership University, Kigali
                             </p>
                         </article>
                     </li>
-                    <li>
+                    <li class="carousel__item">
                         <article class="story-card">
-                            <img src="assets/images/story-4-thumb.jpg" alt="">
-                            <h3 class="story-card-title"><a href="story.html?story=4">A Day Managing Frontend Interns</a></h3>
-                            <p class="story-card-meta">
-                                <span class="story-card-format">Audio</span>
+                            <img class="story-card__image" src="assets/images/story-4-thumb.jpg" alt="">
+                            <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=4">A Day Managing Frontend Interns</a></h3>
+                            <p class="story-card__meta">
+                                <span class="format-label">Audio</span>
                                 <span aria-hidden="true">&middot;</span>
                                 <span class="visually-hidden">Duration: </span><time datetime="PT40S">0:40</time>
                             </p>
-                            <p class="story-card-location">
+                            <p class="story-card__location">
                                 <span class="visually-hidden">Location: </span>Kigali, Rwanda
                             </p>
                         </article>
                     </li>
-                    <li>
+                    <li class="carousel__item">
                         <article class="story-card">
-                            <img src="assets/images/story-2-thumb.jpg" alt="">
-                            <h3 class="story-card-title"><a href="story.html?story=2">My First Football Match in Kigali</a></h3>
-                            <p class="story-card-meta">
-                                <span class="story-card-format">Video</span>
+                            <img class="story-card__image" src="assets/images/story-2-thumb.jpg" alt="">
+                            <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=2">My First Football Match in Kigali</a></h3>
+                            <p class="story-card__meta">
+                                <span class="format-label">Video</span>
                                 <span aria-hidden="true">&middot;</span>
                                 <span class="visually-hidden">Duration: </span><time datetime="PT1M31S">1:31</time>
                             </p>
-                            <p class="story-card-location">
+                            <p class="story-card__location">
                                 <span class="visually-hidden">Location: </span>Kigali, Rwanda
                             </p>
                         </article>
                     </li>
-                    <li>
+                    <li class="carousel__item">
                         <article class="story-card">
-                            <img src="assets/images/story-5-thumb.jpg" alt="">
-                            <h3 class="story-card-title"><a href="story.html?story=5">Why My Website Needed a CDN</a></h3>
-                            <p class="story-card-meta">
-                                <span class="story-card-format">Audio</span>
+                            <img class="story-card__image" src="assets/images/story-5-thumb.jpg" alt="">
+                            <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=5">Why My Website Needed a CDN</a></h3>
+                            <p class="story-card__meta">
+                                <span class="format-label">Audio</span>
                                 <span aria-hidden="true">&middot;</span>
                                 <span class="visually-hidden">Duration: </span><time datetime="PT3M31S">3:31</time>
                             </p>
-                            <p class="story-card-location">
+                            <p class="story-card__location">
                                 <span class="visually-hidden">Location: </span>Kigali, Rwanda
                             </p>
                         </article>
                     </li>
-                    <li>
+                    <li class="carousel__item">
                         <article class="story-card">
-                            <img src="assets/images/story-3-thumb.jpg" alt="">
-                            <h3 class="story-card-title"><a href="story.html?story=3">Building AmaiReady: An App for Expecting Mothers</a></h3>
-                            <p class="story-card-meta">
-                                <span class="story-card-format">Video</span>
+                            <img class="story-card__image" src="assets/images/story-3-thumb.jpg" alt="">
+                            <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=3">Building AmaiReady: An App for Expecting Mothers</a></h3>
+                            <p class="story-card__meta">
+                                <span class="format-label">Video</span>
                                 <span aria-hidden="true">&middot;</span>
                                 <span class="visually-hidden">Duration: </span><time datetime="PT2M">2:00</time>
                             </p>
-                            <p class="story-card-location">
+                            <p class="story-card__location">
                                 <span class="visually-hidden">Location: </span>African Leadership University, Kigali
                             </p>
                         </article>
@@ -132,32 +132,32 @@
             <h2 id="topics-title">Explore by topic</h2>
             <!-- Each topic links to the story that fits it best -->
             <ul class="topic-list">
-                <li>
+                <li class="topic-list__item">
                     <article class="topic-card">
-                        <span class="topic-icon icon-abroad" aria-hidden="true"></span>
-                        <h3 class="topic-card-title"><a href="story.html?story=1">Studying abroad</a></h3>
-                        <p class="topic-card-story">Watch: Where I Come From, and Where I'm Going</p>
+                        <span class="icon-badge topic-card__icon icon-badge--abroad" aria-hidden="true"></span>
+                        <h3 class="topic-card__title"><a class="topic-card__link" href="story.html?story=1">Studying abroad</a></h3>
+                        <p class="topic-card__story">Watch: Where I Come From, and Where I'm Going</p>
                     </article>
                 </li>
-                <li>
+                <li class="topic-list__item">
                     <article class="topic-card">
-                        <span class="topic-icon icon-uni" aria-hidden="true"></span>
-                        <h3 class="topic-card-title"><a href="story.html?story=3">Surviving uni</a></h3>
-                        <p class="topic-card-story">Watch: Building AmaiReady: An App for Expecting Mothers</p>
+                        <span class="icon-badge topic-card__icon icon-badge--uni" aria-hidden="true"></span>
+                        <h3 class="topic-card__title"><a class="topic-card__link" href="story.html?story=3">Surviving uni</a></h3>
+                        <p class="topic-card__story">Watch: Building AmaiReady: An App for Expecting Mothers</p>
                     </article>
                 </li>
-                <li>
+                <li class="topic-list__item">
                     <article class="topic-card">
-                        <span class="topic-icon icon-code" aria-hidden="true"></span>
-                        <h3 class="topic-card-title"><a href="story.html?story=5">Learning to code</a></h3>
-                        <p class="topic-card-story">Listen: Why My Website Needed a CDN</p>
+                        <span class="icon-badge topic-card__icon icon-badge--code" aria-hidden="true"></span>
+                        <h3 class="topic-card__title"><a class="topic-card__link" href="story.html?story=5">Learning to code</a></h3>
+                        <p class="topic-card__story">Listen: Why My Website Needed a CDN</p>
                     </article>
                 </li>
-                <li>
+                <li class="topic-list__item">
                     <article class="topic-card">
-                        <span class="topic-icon icon-friends" aria-hidden="true"></span>
-                        <h3 class="topic-card-title"><a href="story.html?story=2">Making friends</a></h3>
-                        <p class="topic-card-story">Watch: My First Football Match in Kigali</p>
+                        <span class="icon-badge topic-card__icon icon-badge--friends" aria-hidden="true"></span>
+                        <h3 class="topic-card__title"><a class="topic-card__link" href="story.html?story=2">Making friends</a></h3>
+                        <p class="topic-card__story">Watch: My First Football Match in Kigali</p>
                     </article>
                 </li>
             </ul>
@@ -166,21 +166,21 @@
     </main>
 
     <footer class="site-footer">
-        <p class="footer-name">Mitchell Barure</p>
+        <p class="site-footer__name">Mitchell Barure</p>
         <div class="socials" id="say-hi">
-            <h2 class="socials-title">Say hi</h2>
-            <ul class="socials-list">
+            <h2 class="socials__title">Say hi</h2>
+            <ul class="socials__list">
                 <li>
-                    <a href="https://github.com/MitchellBarure" target="_blank" rel="noopener noreferrer">
-                        <span class="social-icon icon-github" aria-hidden="true"></span>
+                    <a class="socials__link" href="https://github.com/MitchellBarure" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon social-icon--github" aria-hidden="true"></span>
                         GitHub
                         <span aria-hidden="true">&nearr;</span>
                         <span class="visually-hidden">(opens in a new tab)</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                        <span class="social-icon icon-instagram" aria-hidden="true"></span>
+                    <a class="socials__link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon social-icon--instagram" aria-hidden="true"></span>
                         Instagram
                         <span aria-hidden="true">&nearr;</span>
                         <span class="visually-hidden">(opens in a new tab)</span>

@@ -18,17 +18,17 @@
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <header class="site-header">
-        <a class="logo" href="index.html">StoryCast</a>
+        <a class="site-header__logo" href="index.html">StoryCast</a>
 
-        <nav aria-label="Main">
-            <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="story.html" aria-current="page">Stories</a></li>
-                <li><a href="about.html">About</a></li>
+        <nav class="site-nav" aria-label="Main">
+            <ul class="site-nav__list">
+                <li><a class="site-nav__link" href="index.html">Home</a></li>
+                <li><a class="site-nav__link" href="story.html" aria-current="page">Stories</a></li>
+                <li><a class="site-nav__link" href="about.html">About</a></li>
             </ul>
         </nav>
 
-        <a class="btn btn-say-hi" href="#say-hi">Say hi</a>
+        <a class="btn site-header__say-hi" href="#say-hi">Say hi</a>
     </header>
 
     <main id="main" class="story-layout" tabindex="-1">
@@ -36,9 +36,9 @@
         <article class="story" aria-labelledby="story-title">
 
             <!-- main.js shows one of these two figures based on ?story=N. Without JS, story #1's video shows. -->
-            <figure class="story-video" data-media="video">
+            <figure class="story__video" data-media="video">
                 <!-- No autoplay. preload="metadata" loads the length and first frame only. -->
-                <video controls preload="metadata" poster="assets/images/story-1-poster.jpg" aria-describedby="story-description">
+                <video class="story__player" controls preload="metadata" poster="assets/images/story-1-poster.jpg" aria-describedby="story-description">
                     <source src="assets/video/story-1.mp4" type="video/mp4">
                     <track kind="captions" src="assets/captions/story-1-en.vtt" srclang="en" label="English" default>
                     <!-- Fallback for browsers that can't play the video -->
@@ -51,9 +51,9 @@
             </figure>
 
             <!-- Audio stories: cover image plus player. Audio has no captions, so the transcript below carries the content. -->
-            <figure class="story-audio" data-media="audio" hidden>
-                <img class="story-cover" src="assets/images/story-4-poster.jpg" alt="" loading="lazy">
-                <audio controls preload="none" aria-describedby="story-description">
+            <figure class="story__audio" data-media="audio" hidden>
+                <img class="story__cover" src="assets/images/story-4-poster.jpg" alt="" loading="lazy">
+                <audio class="story__player" controls preload="none" aria-describedby="story-description">
                     <source src="assets/audio/story-4.m4a" type="audio/mp4">
                     <!-- Fallback for browsers that can't play the audio -->
                     <p>
@@ -64,10 +64,10 @@
                 </audio>
             </figure>
 
-            <header class="story-header">
+            <header class="story__header">
                 <h1 id="story-title">Where I Come From, and Where I'm Going</h1>
-                <p class="story-meta">
-                    <span class="story-card-format" data-story-format>Video</span>
+                <p class="story__meta">
+                    <span class="format-label format-label--highlight" data-story-format>Video</span>
                     <span aria-hidden="true">&middot;</span>
                     <span class="visually-hidden">Duration: </span><time datetime="PT3M34S" data-story-duration>3:34</time>
                     <span aria-hidden="true">&middot;</span>
@@ -75,7 +75,7 @@
                 </p>
             </header>
 
-            <p id="story-description" class="story-description">Where I was born, where I grew up, and the mission behind everything I build: using technology and storytelling to make healthcare more affordable for single parents and low-income families in Zimbabwe.</p>
+            <p id="story-description" class="story__description">Where I was born, where I grew up, and the mission behind everything I build: using technology and storytelling to make healthcare more affordable for single parents and low-income families in Zimbabwe.</p>
 
             <section id="transcript" class="transcript" aria-labelledby="transcript-title">
                 <h2 id="transcript-title">Transcript</h2>
@@ -90,35 +90,35 @@
 
         <aside class="related" aria-labelledby="related-title">
             <h2 id="related-title">You might also like</h2>
-            <ul class="related-list">
-                <li>
-                    <article class="story-card story-card-small">
-                        <img src="assets/images/story-4-thumb.jpg" alt="">
-                        <h3 class="story-card-title"><a href="story.html?story=4">A Day Managing Frontend Interns</a></h3>
-                        <p class="story-card-meta">
-                            <span class="story-card-format">Audio</span>
+            <ul class="related__list">
+                <li class="related__item">
+                    <article class="story-card">
+                        <img class="story-card__image" src="assets/images/story-4-thumb.jpg" alt="">
+                        <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=4">A Day Managing Frontend Interns</a></h3>
+                        <p class="story-card__meta">
+                            <span class="format-label">Audio</span>
                             <span aria-hidden="true">&middot;</span>
                             <span class="visually-hidden">Duration: </span><time datetime="PT40S">0:40</time>
                         </p>
                     </article>
                 </li>
-                <li>
-                    <article class="story-card story-card-small">
-                        <img src="assets/images/story-2-thumb.jpg" alt="">
-                        <h3 class="story-card-title"><a href="story.html?story=2">My First Football Match in Kigali</a></h3>
-                        <p class="story-card-meta">
-                            <span class="story-card-format">Video</span>
+                <li class="related__item">
+                    <article class="story-card">
+                        <img class="story-card__image" src="assets/images/story-2-thumb.jpg" alt="">
+                        <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=2">My First Football Match in Kigali</a></h3>
+                        <p class="story-card__meta">
+                            <span class="format-label">Video</span>
                             <span aria-hidden="true">&middot;</span>
                             <span class="visually-hidden">Duration: </span><time datetime="PT1M31S">1:31</time>
                         </p>
                     </article>
                 </li>
-                <li>
-                    <article class="story-card story-card-small">
-                        <img src="assets/images/story-5-thumb.jpg" alt="">
-                        <h3 class="story-card-title"><a href="story.html?story=5">Why My Website Needed a CDN</a></h3>
-                        <p class="story-card-meta">
-                            <span class="story-card-format">Audio</span>
+                <li class="related__item">
+                    <article class="story-card">
+                        <img class="story-card__image" src="assets/images/story-5-thumb.jpg" alt="">
+                        <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=5">Why My Website Needed a CDN</a></h3>
+                        <p class="story-card__meta">
+                            <span class="format-label">Audio</span>
                             <span aria-hidden="true">&middot;</span>
                             <span class="visually-hidden">Duration: </span><time datetime="PT3M31S">3:31</time>
                         </p>
@@ -130,21 +130,21 @@
     </main>
 
     <footer class="site-footer">
-        <p class="footer-name">Mitchell Barure</p>
+        <p class="site-footer__name">Mitchell Barure</p>
         <div class="socials" id="say-hi">
-            <h2 class="socials-title">Say hi</h2>
-            <ul class="socials-list">
+            <h2 class="socials__title">Say hi</h2>
+            <ul class="socials__list">
                 <li>
-                    <a href="https://github.com/MitchellBarure" target="_blank" rel="noopener noreferrer">
-                        <span class="social-icon icon-github" aria-hidden="true"></span>
+                    <a class="socials__link" href="https://github.com/MitchellBarure" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon social-icon--github" aria-hidden="true"></span>
                         GitHub
                         <span aria-hidden="true">&nearr;</span>
                         <span class="visually-hidden">(opens in a new tab)</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                        <span class="social-icon icon-instagram" aria-hidden="true"></span>
+                    <a class="socials__link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon social-icon--instagram" aria-hidden="true"></span>
                         Instagram
                         <span aria-hidden="true">&nearr;</span>
                         <span class="visually-hidden">(opens in a new tab)</span>

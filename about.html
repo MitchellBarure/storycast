@@ -19,53 +19,53 @@
 
     <header class="site-header">
         <!-- Swap the text for <img src="assets/images/logo.svg" alt="StoryCast"> when the logo is ready -->
-        <a class="logo" href="index.html">StoryCast</a>
+        <a class="site-header__logo" href="index.html">StoryCast</a>
 
-        <nav aria-label="Main">
-            <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="story.html">Stories</a></li>
-                <li><a href="about.html" aria-current="page">About</a></li>
+        <nav class="site-nav" aria-label="Main">
+            <ul class="site-nav__list">
+                <li><a class="site-nav__link" href="index.html">Home</a></li>
+                <li><a class="site-nav__link" href="story.html">Stories</a></li>
+                <li><a class="site-nav__link" href="about.html" aria-current="page">About</a></li>
             </ul>
         </nav>
 
-        <a class="btn btn-say-hi" href="#say-hi">Say hi</a>
+        <a class="btn site-header__say-hi" href="#say-hi">Say hi</a>
     </header>
 
     <main id="main" tabindex="-1">
 
         <section class="about-intro" aria-labelledby="about-title">
-            <h1 id="about-title">Why I started</h1>
-            <p class="tagline">The guide I wish I had.</p>
+            <h1 id="about-title" class="about-intro__title">Why I started</h1>
+            <p class="about-intro__tagline">The guide I wish I had.</p>
             <p>I finished high school in South Africa dreaming of studying medicine. Life had other plans, and I ended up studying software engineering at ALU in Kigali. I never let go of healthcare, though. Today my mission is to build digital tools that make healthcare more affordable for families in Zimbabwe. Along the way I kept recording moments: my first football match in a new city, late nights building apps, hectic days leading a team, and advice from friends. StoryCast is where I share them, so the next person figuring out adulthood feels a little less alone.</p>
         </section>
 
         <section class="audience" aria-labelledby="audience-title">
-            <div class="audience-text">
+            <div class="audience__text">
                 <h2 id="audience-title">Who it's for</h2>
                 <p>StoryCast is for anyone stepping into adulthood: students about to leave home, first-years trying to find their feet, people teaching themselves to code, and anyone who has wondered how to make friends after school. If you're figuring life out as you go, this is for you.</p>
             </div>
-            <figure class="audience-photo">
-                <img src="assets/images/group-photo.jpg" alt="Three friends sitting close together on bright yellow stadium seats, looking back over their shoulders at the camera">
-                <figcaption>Some of the people who made a new city feel like home.</figcaption>
+            <figure class="audience__photo">
+                <img class="audience__image" src="assets/images/group-photo.jpg" alt="Three friends sitting close together on bright yellow stadium seats, looking back over their shoulders at the camera">
+                <figcaption class="audience__caption">Some of the people who made a new city feel like home.</figcaption>
             </figure>
         </section>
 
         <section class="accessibility" aria-labelledby="access-title">
-            <h2 id="access-title">Built for everyone</h2>
+            <h2 id="access-title" class="accessibility__title">Built for everyone</h2>
             <ul class="feature-list">
                 <li class="feature-card">
-                    <span class="feature-icon icon-captions" aria-hidden="true"></span>
+                    <span class="icon-badge feature-card__icon icon-badge--captions" aria-hidden="true"></span>
                     <h3>Captions and transcripts</h3>
                     <p>Every video has captions you can switch on, and every story has a full written transcript. Watch with the sound off, or read instead.</p>
                 </li>
                 <li class="feature-card">
-                    <span class="feature-icon icon-screen-reader" aria-hidden="true"></span>
+                    <span class="icon-badge feature-card__icon icon-badge--screen-reader" aria-hidden="true"></span>
                     <h3>Screen reader friendly</h3>
                     <p>Pages use clear headings, labelled buttons and image descriptions, so screen readers can read every page in a sensible order.</p>
                 </li>
                 <li class="feature-card">
-                    <span class="feature-icon icon-keyboard" aria-hidden="true"></span>
+                    <span class="icon-badge feature-card__icon icon-badge--keyboard" aria-hidden="true"></span>
                     <h3>Keyboard friendly</h3>
                     <p>Move through the whole site with Tab, Shift+Tab and Enter. A bold outline always shows where you are, and a skip link jumps straight to the content.</p>
                 </li>
@@ -73,32 +73,32 @@
         </section>
 
         <section class="engage" aria-labelledby="engage-title">
-            <h2 id="engage-title">How to engage</h2>
+            <h2 id="engage-title" class="engage__title">How to engage</h2>
             <ol class="steps">
-                <li><strong>Pick a story.</strong> Browse the featured stories on the home page or choose a topic.</li>
-                <li><strong>Watch, listen or read.</strong> Press play and turn on captions with the CC button, or open the full transcript below the video.</li>
-                <li><strong>Say hi.</strong> Got a story or a question? Find me on GitHub or Instagram. The links are in the footer.</li>
+                <li class="steps__item"><strong>Pick a story.</strong> Browse the featured stories on the home page or choose a topic.</li>
+                <li class="steps__item"><strong>Watch, listen or read.</strong> Press play and turn on captions with the CC button, or open the full transcript below the video.</li>
+                <li class="steps__item"><strong>Say hi.</strong> Got a story or a question? Find me on GitHub or Instagram. The links are in the footer.</li>
             </ol>
         </section>
 
     </main>
 
     <footer class="site-footer">
-        <p class="footer-name">Mitchell Barure</p>
+        <p class="site-footer__name">Mitchell Barure</p>
         <div class="socials" id="say-hi">
-            <h2 class="socials-title">Say hi</h2>
-            <ul class="socials-list">
+            <h2 class="socials__title">Say hi</h2>
+            <ul class="socials__list">
                 <li>
-                    <a href="https://github.com/MitchellBarure" target="_blank" rel="noopener noreferrer">
-                        <span class="social-icon icon-github" aria-hidden="true"></span>
+                    <a class="socials__link" href="https://github.com/MitchellBarure" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon social-icon--github" aria-hidden="true"></span>
                         GitHub
                         <span aria-hidden="true">&nearr;</span>
                         <span class="visually-hidden">(opens in a new tab)</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                        <span class="social-icon icon-instagram" aria-hidden="true"></span>
+                    <a class="socials__link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <span class="social-icon social-icon--instagram" aria-hidden="true"></span>
                         Instagram
                         <span aria-hidden="true">&nearr;</span>
                         <span class="visually-hidden">(opens in a new tab)</span>

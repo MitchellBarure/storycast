@@ -43,12 +43,15 @@ main {
         padding-inline: $space-m;
     }
 
-    .logo        { grid-area: logo; }
-    nav          { grid-area: nav; }
-    .btn-say-hi  { grid-area: share; }
+    &__logo    { grid-area: logo; }
+    &__say-hi  { grid-area: share; }
 }
 
-.logo {
+.site-nav {
+    grid-area: nav;
+}
+
+.site-header__logo {
     display: inline-flex;
     align-items: center;
     min-height: $tap-target;
@@ -59,29 +62,29 @@ main {
     text-decoration: none;
 }
 
-.nav-list {
+.site-nav__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: $space-3xs $space-s;
+}
 
-    a {
-        display: inline-flex;
-        align-items: center;
-        min-height: $tap-target;
-        padding-inline: $space-xs;
-        font-weight: $weight-bold;
-        text-decoration: none;
+.site-nav__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: $tap-target;
+    padding-inline: $space-xs;
+    font-weight: $weight-bold;
+    text-decoration: none;
 
-        &:hover {
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-        }
+    &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+    }
 
-        &[aria-current="page"] {
-            text-decoration: underline;
-            text-decoration-thickness: 3px;
-        }
+    &[aria-current="page"] {
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
     }
 }
 
@@ -123,7 +126,7 @@ main > .hero {
 
 // Home page: the hero starts at the very top of the window and the
 // header pill floats over it (still first in the tab order)
-.home {
+.page--home {
     .site-header {
         position: absolute;
         top: $space-s;
@@ -177,7 +180,7 @@ main > .hero {
     }
 }
 
-.hero-image {
+.hero__image {
     position: absolute;
     inset: 0;
     z-index: -2;
@@ -186,22 +189,22 @@ main > .hero {
     object-fit: cover;
 }
 
-.hero-content {
+.hero__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: $space-m;
     max-width: 50rem;
+}
 
-    h1 {
-        color: $hero-title;
-        font-size: $text-display;
-        line-height: $leading-tight;
-    }
+.hero__title {
+    color: $hero-title;
+    font-size: $text-display;
+    line-height: $leading-tight;
 }
 
 // Watch and Listen side by side; they wrap onto two rows only if there isn't room
-.hero-actions {
+.hero__actions {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -212,7 +215,7 @@ main > .hero {
     }
 }
 
-.hero-subtitle {
+.hero__subtitle {
     max-width: $max-width-text;
     font-size: $text-lg;
 }
@@ -223,14 +226,14 @@ main > .hero {
     align-items: center;
     max-width: $max-width-text;
     margin-inline: auto;
-
-    h1,
-    .tagline {
-        text-align: center;
-    }
 }
 
-.tagline {
+.about-intro__title,
+.about-intro__tagline {
+    text-align: center;
+}
+
+.about-intro__tagline {
     font-size: $text-lg;
     font-weight: $weight-bold;
 }
@@ -245,14 +248,14 @@ main > .hero {
     }
 }
 
-.audience-text {
+.audience__text {
     display: flex;
     flex-direction: column;
     gap: $space-s;
 }
 
-.accessibility > h2,
-.engage > h2 {
+.accessibility__title,
+.engage__title {
     text-align: center;
 }
 
@@ -283,7 +286,7 @@ main > .hero {
 }
 
 // Title on the left, meta on the right; wraps onto two lines when narrow
-.story-header {
+.story__header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -291,13 +294,13 @@ main > .hero {
     gap: $space-2xs $space-m;
 }
 
-.story-description {
+.story__description {
     max-width: $max-width-text;
     font-size: $text-lg;
 }
 
 // Grid of cards below the story; a single column in the sidebar on laptops
-.related-list {
+.related__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
     gap: $space-m;
@@ -319,13 +322,9 @@ main > .hero {
     padding-inline: max(#{$gutter}, (100% - #{$max-width}) / 2);
     background-color: $dark-bg;
     color: $dark-text;
-
-    a {
-        color: $dark-link;
-    }
 }
 
-.footer-name {
+.site-footer__name {
     font-family: $font-heading;
     font-weight: $weight-heading;
     font-size: $text-xl;
@@ -337,22 +336,23 @@ main > .hero {
     gap: $space-2xs;
 }
 
-.socials-title {
+.socials__title {
     color: $dark-link;
     font-size: $text-lg;
     text-transform: uppercase;
     letter-spacing: $tracking-wide;
 }
 
-.socials-list {
+.socials__list {
     display: flex;
     flex-direction: column;
     gap: $space-3xs;
+}
 
-    a {
-        display: inline-flex;
-        align-items: center;
-        gap: $space-2xs;
-        min-height: $tap-target;
-    }
+.socials__link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2xs;
+    min-height: $tap-target;
+    color: $dark-link;
 }
