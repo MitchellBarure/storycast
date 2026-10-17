@@ -13,7 +13,7 @@ const STORIES = {
         duration: "1:31",
         datetime: "PT1M31S",
         location: "Kigali, Rwanda",
-        description: "Description coming soon." // TODO: add description
+        description: "My first football match at Amahoro Stadium with friends: the outfits, the walk into the stadium, and the music."
     },
     3: {
         title: "Building AmaiReady: An App for Expecting Mothers",
@@ -21,7 +21,7 @@ const STORIES = {
         duration: "2:00",
         datetime: "PT2M",
         location: "African Leadership University, Kigali",
-        description: "Description coming soon." // TODO: add description
+        description: "A walkthrough of AmaiReady, my final software prototype: a maternal delivery preparation and support system that helps pregnant women in rural Zimbabwe get their delivery supplies ready, find their nearest clinic and ask for help."
     },
     4: {
         title: "A Day Managing Frontend Interns",
@@ -29,7 +29,7 @@ const STORIES = {
         duration: "0:40",
         datetime: "PT40S",
         location: "Kigali, Rwanda",
-        description: "Description coming soon." // TODO: add description
+        description: "Three meetings a week: a short joint stand-up, then one-to-one check-ins on what each intern has done, what's next and what got in the way."
     },
     5: {
         title: "Why My Website Needed a CDN",
@@ -37,7 +37,7 @@ const STORIES = {
         duration: "3:31",
         datetime: "PT3M31S",
         location: "Kigali, Rwanda",
-        description: "Description coming soon." // TODO: add description
+        description: "Why my website's images loaded slowly, and the fixes: a CDN, ThumbHash and blurred placeholders while images load, and swapping heavy PNGs for lighter WebP files."
     }
 };
 
@@ -128,7 +128,7 @@ function initStoryPage() {
     page.querySelector("#story-description").textContent = story.description;
     page.querySelector("[data-transcript]").href = `${ASSETS}/transcripts/story-${id}.txt`;
 
-    // "You might also like": the other stories, in order, reusing the first card as a template
+    // "You might also like": a mix of video and audio (see pickRelated), reusing the first card as a template
     const relatedList = page.querySelector(".related__list");
     const template = relatedList.querySelector("li");
     const relatedIds = pickRelated(id);
