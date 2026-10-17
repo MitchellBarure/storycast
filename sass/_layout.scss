@@ -88,12 +88,22 @@ main {
 // ---------- Main ----------
 
 main {
-    @extend %container;
     display: grid;
     // minmax(0, …) stops wide content (like the carousel row) from stretching the page
     grid-template-columns: minmax(0, 1fr);
     gap: $space-section;
     padding-block: $space-l $space-section;
+}
+
+// Each section sits in the centred page column...
+main:not(.story-layout) > * {
+    @extend %container;
+}
+
+// ...except the home hero, which runs edge to edge
+main > .hero {
+    width: 100%;
+    margin-inline: 0;
 }
 
 // Sections stack their heading and content with even spacing
@@ -111,6 +121,41 @@ main {
 
 // ---------- Hero (home) ----------
 
+// Home page: the hero starts at the very top of the window and the
+// header pill floats over it (still first in the tab order)
+.home {
+    .site-header {
+        position: absolute;
+        top: $space-s;
+        right: 0;
+        left: 0;
+        z-index: 10;
+        margin-top: 0;
+        box-shadow: $shadow-offset $shadow-offset 0 $border;
+    }
+
+    main {
+        padding-top: 0;
+    }
+
+    .hero {
+        // Fill the whole screen; svh avoids the jump when phone browser bars hide
+        min-height: 100vh;
+        min-height: 100svh;
+        // Room for the floating header: up to three rows on the smallest
+        // phones (the nav wraps), two rows on phones, one row from tablets
+        padding-top: 13rem;
+
+        @media (min-width: 24em) {
+            padding-top: 10rem;
+        }
+
+        @media (min-width: $bp-md) {
+            padding-top: 8rem;
+        }
+    }
+}
+
 .hero {
     position: relative;
     isolation: isolate;
@@ -122,8 +167,6 @@ main {
     background-color: $dark-bg;
     color: $dark-text;
     text-align: center;
-    border: $border-width solid $border;
-    border-radius: $radius-l;
 
     &::after {
         content: "";
@@ -212,6 +255,8 @@ main {
 // Phones and tablets: story, then "You might also like" underneath.
 // Laptops and up: story on the left, sidebar on the right.
 .story-layout {
+    @extend %container;
+
     @media (min-width: $bp-lg) {
         grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
         align-items: start;

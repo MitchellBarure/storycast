@@ -172,7 +172,7 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
-main, .site-header {
+.story-layout, main:not(.story-layout) > *, .site-header {
   width: min(100% - 2 * clamp(1rem, 0.5rem + 2.5vw, 2rem), 72rem);
   margin-inline: auto;
 }
@@ -256,6 +256,11 @@ main {
   padding-block: 2rem clamp(3rem, 2rem + 4vw, 6rem);
 }
 
+main > .hero {
+  width: 100%;
+  margin-inline: 0;
+}
+
 .featured,
 .topics,
 .about-intro,
@@ -266,6 +271,34 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.home .site-header {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  margin-top: 0;
+  box-shadow: 4px 4px 0 #23003F;
+}
+.home main {
+  padding-top: 0;
+}
+.home .hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: 13rem;
+}
+@media (min-width: 24em) {
+  .home .hero {
+    padding-top: 10rem;
+  }
+}
+@media (min-width: 48em) {
+  .home .hero {
+    padding-top: 8rem;
+  }
 }
 
 .hero {
@@ -279,8 +312,6 @@ main {
   background-color: #23003F;
   color: #F8F4EC;
   text-align: center;
-  border: 3px solid #23003F;
-  border-radius: 1.5rem;
 }
 .hero::after {
   content: "";
