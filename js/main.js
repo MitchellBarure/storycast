@@ -44,6 +44,26 @@ const STORIES = {
 // Number of cards in "You might also like"
 const RELATED_COUNT = 3;
 
+// Pick other stories for "You might also like", alternating video and audio
+// (starting with the opposite format to the current story) so both always appear
+function pickRelated(currentId) {
+    const others = Object.keys(STORIES).filter((key) => key !== currentId);
+    const byFormat = {
+        Video: others.filter((key) => STORIES[key].format === "Video"),
+        Audio: others.filter((key) => STORIES[key].format === "Audio"),
+    };
+    let next = STORIES[currentId].format === "Video" ? "Audio" : "Video";
+    const picked = [];
+
+    while (picked.length < RELATED_COUNT && (byFormat.Video.length || byFormat.Audio.length)) {
+        const other = next === "Video" ? "Audio" : "Video";
+        const list = byFormat[next].length ? byFormat[next] : byFormat[other];
+        picked.push(list.shift());
+        next = other;
+    }
+    return picked;
+}
+
 // Fill one story card (cloned from the existing markup) with a story's details
 function fillStoryCard(card, id) {
     const story = STORIES[id];
@@ -109,7 +129,7 @@ function initStoryPage() {
     // "You might also like": the other stories, in order, reusing the first card as a template
     const relatedList = page.querySelector(".related-list");
     const template = relatedList.querySelector("li");
-    const relatedIds = Object.keys(STORIES).filter((key) => key !== id).slice(0, RELATED_COUNT);
+    const relatedIds = pickRelated(id);
     relatedList.replaceChildren(...relatedIds.map((key) => {
         const item = template.cloneNode(true);
         fillStoryCard(item, key);

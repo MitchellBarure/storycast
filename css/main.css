@@ -344,6 +344,16 @@ main > .hero {
   line-height: 1.05;
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+}
+.hero-actions .btn {
+  min-width: 9rem;
+}
+
 .hero-subtitle {
   max-width: 65ch;
   font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);

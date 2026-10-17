@@ -200,6 +200,18 @@ main > .hero {
     }
 }
 
+// Watch and Listen side by side; they wrap onto two rows only if there isn't room
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $space-s $space-m;
+
+    .btn {
+        min-width: 9rem;
+    }
+}
+
 .hero-subtitle {
     max-width: $max-width-text;
     font-size: $text-lg;

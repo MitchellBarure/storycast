@@ -37,7 +37,7 @@ There is one story page, `story.html`. Each story card links to `story.html?stor
 
 - shows the video player (stories 1 to 3) or the cover image and audio player (stories 4 and 5)
 - fills in the title, format, duration, location, description and transcript link
-- shows three other stories under "You might also like"
+- shows three other stories under "You might also like", always mixing video and audio
 
 Without JavaScript, or without `?story=`, the page shows story 1, which is written into the HTML.
 

@@ -39,14 +39,19 @@
             <div class="hero-content">
                 <h1 id="hero-title">StoryCast: Adulting with Mitchie</h1>
                 <p class="hero-subtitle">Real stories about studying abroad, surviving uni, learning to code, and making friends as an adult.</p>
-                <a class="btn btn-primary" href="#featured">Start watching</a>
+                <!-- Two ways in: a video story and an audio story. The hidden text completes each link's name. -->
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="story.html?story=1">Watch<span class="visually-hidden"> a video story</span></a>
+                    <a class="btn btn-primary" href="story.html?story=4">Listen<span class="visually-hidden"> to an audio story</span></a>
+                </div>
             </div>
         </section>
 
         <section id="featured" class="featured" aria-labelledby="featured-title" aria-roledescription="carousel">
             <h2 id="featured-title">Featured stories</h2>
 
-            <!-- Carousel: no autoplay, no buttons. Swipe, scroll sideways, or Tab through the cards. -->
+            <!-- Carousel: no autoplay, no buttons. Swipe, scroll sideways, or Tab through the cards.
+                 Video and audio alternate so both formats are visible straight away. -->
             <div class="carousel">
                 <ul id="featured-track" class="carousel-track">
                     <li>
@@ -57,34 +62,6 @@
                                 <span class="story-card-format">Video</span>
                                 <span aria-hidden="true">&middot;</span>
                                 <span class="visually-hidden">Duration: </span><time datetime="PT3M34S">3:34</time>
-                            </p>
-                            <p class="story-card-location">
-                                <span class="visually-hidden">Location: </span>African Leadership University, Kigali
-                            </p>
-                        </article>
-                    </li>
-                    <li>
-                        <article class="story-card">
-                            <img src="assets/images/story-2-thumb.jpg" alt="">
-                            <h3 class="story-card-title"><a href="story.html?story=2">My First Football Match in Kigali</a></h3>
-                            <p class="story-card-meta">
-                                <span class="story-card-format">Video</span>
-                                <span aria-hidden="true">&middot;</span>
-                                <span class="visually-hidden">Duration: </span><time datetime="PT1M31S">1:31</time>
-                            </p>
-                            <p class="story-card-location">
-                                <span class="visually-hidden">Location: </span>Kigali, Rwanda
-                            </p>
-                        </article>
-                    </li>
-                    <li>
-                        <article class="story-card">
-                            <img src="assets/images/story-3-thumb.jpg" alt="">
-                            <h3 class="story-card-title"><a href="story.html?story=3">Building AmaiReady: An App for Expecting Mothers</a></h3>
-                            <p class="story-card-meta">
-                                <span class="story-card-format">Video</span>
-                                <span aria-hidden="true">&middot;</span>
-                                <span class="visually-hidden">Duration: </span><time datetime="PT2M">2:00</time>
                             </p>
                             <p class="story-card-location">
                                 <span class="visually-hidden">Location: </span>African Leadership University, Kigali
@@ -107,6 +84,20 @@
                     </li>
                     <li>
                         <article class="story-card">
+                            <img src="assets/images/story-2-thumb.jpg" alt="">
+                            <h3 class="story-card-title"><a href="story.html?story=2">My First Football Match in Kigali</a></h3>
+                            <p class="story-card-meta">
+                                <span class="story-card-format">Video</span>
+                                <span aria-hidden="true">&middot;</span>
+                                <span class="visually-hidden">Duration: </span><time datetime="PT1M31S">1:31</time>
+                            </p>
+                            <p class="story-card-location">
+                                <span class="visually-hidden">Location: </span>Kigali, Rwanda
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="story-card">
                             <img src="assets/images/story-5-thumb.jpg" alt="">
                             <h3 class="story-card-title"><a href="story.html?story=5">Why My Website Needed a CDN</a></h3>
                             <p class="story-card-meta">
@@ -116,6 +107,20 @@
                             </p>
                             <p class="story-card-location">
                                 <span class="visually-hidden">Location: </span>Kigali, Rwanda
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="story-card">
+                            <img src="assets/images/story-3-thumb.jpg" alt="">
+                            <h3 class="story-card-title"><a href="story.html?story=3">Building AmaiReady: An App for Expecting Mothers</a></h3>
+                            <p class="story-card-meta">
+                                <span class="story-card-format">Video</span>
+                                <span aria-hidden="true">&middot;</span>
+                                <span class="visually-hidden">Duration: </span><time datetime="PT2M">2:00</time>
+                            </p>
+                            <p class="story-card-location">
+                                <span class="visually-hidden">Location: </span>African Leadership University, Kigali
                             </p>
                         </article>
                     </li>
