@@ -155,33 +155,6 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
 
 // ---------- Carousel ----------
 
-.carousel {
-    display: flex;
-    flex-direction: column;
-    gap: $space-s;
-}
-
-.carousel-controls {
-    display: flex;
-    justify-content: flex-end;
-    gap: $space-2xs;
-}
-
-.carousel-btn {
-    display: inline-grid;
-    place-items: center;
-    width: $tap-target;
-    height: $tap-target;
-    background-color: $btn-bg;
-    color: $btn-text;
-    font-size: $text-lg;
-    font-weight: $weight-bold;
-    border: $border-width solid $border;
-    border-radius: $radius-pill;
-    box-shadow: $sticker-shadow;
-    @include lift;
-}
-
 // Swipe or scroll sideways; cards snap into place.
 .carousel-track {
     display: grid;
@@ -357,30 +330,4 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
 
 // ---------- Transcript ----------
 
-.transcript details {
-    background-color: $bg;
-    border: $border-width solid $border;
-    border-radius: $radius-m;
-    box-shadow: $sticker-shadow;
-}
 
-.transcript summary {
-    display: flex;
-    align-items: center;
-    min-height: $tap-target;
-    padding: $space-2xs $space-m;
-    font-weight: $weight-bold;
-    cursor: pointer;
-}
-
-.transcript details[open] summary {
-    border-bottom: $border-width solid $border;
-}
-
-.transcript-body {
-    display: flex;
-    flex-direction: column;
-    gap: $space-s;
-    max-width: $max-width-text;
-    padding: $space-m;
-}

@@ -104,7 +104,7 @@ function initStoryPage() {
     time.textContent = story.duration;
     page.querySelector("[data-story-location]").textContent = story.location;
     page.querySelector("#story-description").textContent = story.description;
-    page.querySelector("[data-transcript-download]").href = `assets/transcripts/story-${id}.txt`;
+    page.querySelector("[data-transcript]").href = `assets/transcripts/story-${id}.txt`;
 
     // "You might also like": the other stories, in order, reusing the first card as a template
     const relatedList = page.querySelector(".related-list");

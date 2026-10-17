@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mitchie talks about growing up, moving countries, and his mission to make healthcare more affordable in Zimbabwe. Watch with captions or read the transcript.">
-    <!-- Put the story's name first, e.g. "First week in a new country | StoryCast" -->
     <title>Where I Come From, and Where I'm Going | StoryCast</title>
     <!-- Fonts: Bricolage Grotesque ExtraBold (headings), DM Sans (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +18,6 @@
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <header class="site-header">
-        <!-- Swap the text for <img src="assets/images/logo.svg" alt="StoryCast"> when the logo is ready -->
         <a class="logo" href="index.html">StoryCast</a>
 
         <nav aria-label="Main">
@@ -30,10 +28,7 @@
             </ul>
         </nav>
 
-        <!-- Hook for main.js: Web Share API, falling back to copying the link -->
-        <button type="button" class="btn btn-share" data-share>Share</button>
-        <!-- main.js writes "Link copied" etc. here so screen readers announce it -->
-        <p class="visually-hidden" role="status" data-share-status></p>
+        <a class="btn btn-say-hi" href="#say-hi">Say hi</a>
     </header>
 
     <main id="main" class="story-layout" tabindex="-1">
@@ -57,9 +52,7 @@
 
             <!-- Audio stories: cover image plus player. Audio has no captions, so the transcript below carries the content. -->
             <figure class="story-audio" data-media="audio" hidden>
-                <!-- Decorative: the H1 already names the story -->
                 <img class="story-cover" src="assets/images/story-4-poster.jpg" alt="" loading="lazy">
-                <!-- preload="none" while hidden; main.js switches it to "metadata" when this figure is shown -->
                 <audio controls preload="none" aria-describedby="story-description">
                     <source src="assets/audio/story-4.m4a" type="audio/mp4">
                     <!-- Fallback for browsers that can't play the audio -->
@@ -86,17 +79,10 @@
 
             <section id="transcript" class="transcript" aria-labelledby="transcript-title">
                 <h2 id="transcript-title">Transcript</h2>
-                <!-- <details> is expandable and works with the keyboard without any JS -->
-                <details>
-                    <summary>Show full transcript</summary>
-                    <div class="transcript-body">
-                        <!-- Add sound and visual details in [brackets] so the transcript works for Deaf and blind readers -->
-                        <!-- TODO: paste transcript from story-1-en.vtt, remove timestamps, add [sound/visual notes] -->
-                        <p>[Transcript coming soon]</p>
-                    </div>
-                </details>
-                <p class="transcript-download">
-                    <a href="assets/transcripts/story-1.txt" download data-transcript-download>Download transcript (TXT)</a>
+                <p>Every word, plus sound notes in [brackets], as a plain text file.</p>
+                <!-- main.js points this link at the current story's transcript -->
+                <p>
+                    <a class="btn" href="assets/transcripts/story-1.txt" data-transcript>Read the transcript</a>
                 </p>
             </section>
 
@@ -145,7 +131,7 @@
 
     <footer class="site-footer">
         <p class="footer-name">Mitchell Barure</p>
-        <div class="socials">
+        <div class="socials" id="say-hi">
             <h2 class="socials-title">Say hi</h2>
             <!-- TODO: add my real profile URLs -->
             <ul class="socials-list">
