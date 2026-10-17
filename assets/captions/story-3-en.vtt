@@ -6,117 +6,123 @@ Hi, this is
 
 2
 00:00:06.020 --> 00:00:12.500
-Michelle. So I will be presenting my final
+Mitchell. So I will be presenting my final
 software prototype,
 
 3
-00:00:12.840 --> 00:00:17.800
-which is AmaiReady. So Amai is a Shona
-word for mother, but it also sounds
+00:00:12.840 --> 00:00:17.440
+which is AmaiReady. So "Amai" is a Shona
+word for mother, but it also
 
 4
-00:00:17.800 --> 00:00:23.420
-like MI. And that's very intentional
-because AmaiReady is a maternal delivery
+00:00:17.440 --> 00:00:22.380
+sounds like "Am I". And that's very
+intentional, because AmaiReady is
 
 5
-00:00:23.420 --> 00:00:29.500
-preparation and support system designed
-for pregnant women living in rural
+00:00:22.380 --> 00:00:27.440
+a maternal delivery preparation and
+support system designed for pregnant
 
 6
-00:00:29.500 --> 00:00:33.680
-communities in Zimbabwe. So what exactly
-is the problem?
+00:00:27.440 --> 00:00:31.120
+women living in rural communities in
+Zimbabwe.
 
 7
-00:00:34.500 --> 00:00:40.260
-Many pregnant women struggle to prepare
-all the supplies that they need for
+00:00:31.960 --> 00:00:33.620
+So what exactly is the problem?
 
 8
-00:00:40.260 --> 00:00:45.400
-delivery. Some are asked to source
-maternity kit items themselves.
+00:00:34.440 --> 00:00:39.860
+Many pregnant women struggle to prepare
+all the supplies that they need
 
 9
-00:00:45.920 --> 00:00:52.460
-This includes gloves, cotton wool,
-maternity pads, and additionally,
+00:00:39.860 --> 00:00:45.340
+for delivery. Some are asked to source
+maternity kit items themselves.
 
 10
-00:00:52.620 --> 00:00:57.320
-access to clinics may also be affected by
-distance, cost, and limited information.
+00:00:45.920 --> 00:00:50.440
+This includes gloves, cotton wool and
+maternity pads.
 
 11
-00:00:58.020 --> 00:01:02.120
-So mothers may not know what items are
-still missing, which clinic is the nearest
+00:00:51.060 --> 00:00:55.420
+And additionally, access to clinics may
+also be affected by distance,
 
 12
-00:01:02.120 --> 00:01:04.920
-to them, or where to request for help.
+00:00:55.420 --> 00:00:59.920
+cost and limited information. So mothers
+may not know what items are
 
 13
-00:01:05.500 --> 00:01:07.280
-So why exactly is this a problem?
+00:00:59.920 --> 00:01:04.120
+still missing, which clinic is the nearest
+to them, or where to request
 
 14
-00:01:07.900 --> 00:01:11.400
+00:01:04.120 --> 00:01:07.260
+for help. So why exactly is this a
+problem?
+
+15
+00:01:07.940 --> 00:01:11.440
 Missing supplies delay delivery
 preparation.
 
-15
-00:01:12.080 --> 00:01:15.640
-So this means that mothers would only
-discover missing items close to their
-
 16
-00:01:15.640 --> 00:01:20.900
-delivery date. Information is often then
-scattered between clinic visits, paper
+00:01:11.880 --> 00:01:15.500
+So this means that mothers would only
+discover missing items close to
 
 17
-00:01:20.900 --> 00:01:23.700
-records, sometimes even verbal
-instructions.
+00:01:15.500 --> 00:01:19.760
+their delivery date. Information is often
+then scattered between clinic
 
 18
-00:01:24.140 --> 00:01:30.580
+00:01:19.760 --> 00:01:23.760
+visits, paper records, sometimes even
+verbal instructions.
+
+19
+00:01:24.560 --> 00:01:30.320
 And support administrators may also
 struggle to track requests consistently.
 
-19
-00:01:31.400 --> 00:01:36.440
-So this then creates stress during a
-period that is already vulnerable for
-
 20
-00:01:36.440 --> 00:01:41.540
-pregnant women. So this is the problem
-that AmaiReady aims to solve.
+00:01:31.380 --> 00:01:35.720
+So this then creates stress during a
+period that is already vulnerable
 
 21
-00:01:41.880 --> 00:01:46.180
+00:01:35.720 --> 00:01:41.560
+for pregnant women. So this is the problem
+that AmaiReady aims to solve.
+
+22
+00:01:41.980 --> 00:01:46.180
 So AmaiReady brings the main preparation
 tasks into one system.
 
-22
-00:01:46.540 --> 00:01:51.880
-This is where now you will see a mother
-can register, log in, and create her
-
 23
-00:01:51.880 --> 00:01:55.080
-pregnancy profile, make requests, and so
-forth.
+00:01:46.540 --> 00:01:51.680
+This is where now you will see a mother
+can register, log in and create
 
 24
-00:01:55.660 --> 00:01:59.520
-And on the other hand, the administrator
-can log in securely, review the support
+00:01:51.680 --> 00:01:55.040
+her pregnancy profile, make requests, and
+so forth.
 
 25
-00:01:59.520 --> 00:01:59.880
-requests.
+00:01:55.660 --> 00:01:59.040
+And on the other hand, the administrator
+can log in securely, review
+
+26
+00:01:59.040 --> 00:01:59.880
+the support requests...

@@ -1,50 +1,19 @@
 Why My Website Needed a CDN
 
+OK, so I think it's going to be best if you have a CDN in between your service and your website. So like your website... I don't know what I'm saying anymore. But the point is, you are using static assets, so every time you reload, you sort of have to fetch the images, and it's slow. But if that's not possible, like you cannot get a CDN...
 
-OK, so I think it's going to be best if you have a CDN in between your service
-and your website. So like your website, I don't know what I'm saying anymore.
-But it's going to be using static assets, so every time you reload, you sort of
-have to fetch the images and it's slow. But if that's not possible, like you
-cannot get a CDN.
+What you should do is, you should use ThumbHash. And what that does is, basically, it gives you a good enough placeholder, like this, like a nice gradient before the image loads. So it's giving, like, an intermediary before the image loads. I know if you are using Next.js, Next.js has a way for you to have, like, placeholders for the images. So this... OK, let me see. Next Image. There is a way for you to use the Image component. So you can use ThumbHash directly using this extension.
 
-What you should do is, you should use Tom Ash, and what that does is basically
-it gives you a good enough place order like this, like a nice gradient before
-the image loads. So it's giving like an intermediary for the image loads. I know
-it's using Next.js. Next.js has a way for you to have like a place order for the
-images.
+So you can see the reload. So even though the image is not loaded yet, you can see at least you have something intermediary. Everything is not blank, and they don't look out of the place. And there is the blurDataURL.
 
-So this, OK, let me see. Next image. There is a way for you to use the image
-component. So you can use Tom Ash directly using this extension.
+I think this uses something else. But yes, you can now blur images too, like placeholder blur images with Next Image. Yeah, just find it a way to balance: make the image load faster, and at least feel... Because if I were to... Let me just show you how it is, live and direct.
 
-So you can see the reload. So even though the image is not good yet, you can see
-at least you have something in the intermediary. Everything is not blank and
-they don't look at the place. And there is the blow data area.
+Empty cache, hard reload. So this is going to be my first experience as a user. What I see is blank, blank, blank. Let me just come in and take you through my style.
 
-I think this uses something else. But yes, you can now blow images, so like a
-place order, blow images with the next image. Yeah, just find it to balance,
-make the image look faster. At least feel, because if I were to, I will just
-show you how you see this live from direct.
+And next, if you look at the images, they are all using PNGs. PNGs are extremely large. Look at this single image, for example. It is 2.7 MB, one single image. If you use WebP, that is a different format.
 
-Empty cache, add reload. So this is going to be my first experience as a user.
-What I see is blank, blank, blank. Let me just come in and take you through my
-style.
+It's way lighter, and it is supported by most web browsers. So you can see: "Can I use WebP?" So you can check the "Can I use" format. You can see that all the major browsers support it, and it is part of the baseline. It's going to give you faster images, so you can have GIFs too with WebP.
 
-And next, if you look at the images, all these images, PNGs are similar. Look at
-this single image, for example. It is 2.7 mb, one single image. If you use WebP,
-there's a different format.
+So, yeah, that's a simple command using sharp. Sharp is like an image processing library. Right, you can just do that, and it's going to do for you at build time or at real time. So in real time, it's not possible, real time, but like at build time, when you build the application, it's going to convert into WebP.
 
-It's real life supported by most web browsers. So you can say, can I use WebP?
-So you can check the can I use format. You can see all the major browser
-supports it.
-
-So in spite of the baseline, I was going to give you faster images, the faster
-you can have, like, some, like, gifts too with WebP. So, yeah, that's a simple
-command using a sharp, sharp is like an image presence in the library. All
-right, you get us to that, and it's going to do for you at build time or at real
-time. So in real time, it's not possible real time, but like at build time, when
-you build the application, it's going to convert into WebP.
-
-But, yeah, I think they made a smart decision, not using, like, next image,
-process everything, which is good, but it also comes with downsides. So just
-find your trademark, or is it trademark, or what is it called? Yeah, this is
-amazing. Kudos to the developers.
+But, yeah, I think they made a smart decision, not using, like, Next Image, process everything, which is good, but it also comes with downsides. So just find your trademark... Or is it trademark? Or what is it called? Yeah, trade-offs. But this is amazing. Kudos to the developers.
