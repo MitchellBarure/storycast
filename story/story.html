@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=DM+Sans:ital,wght@0,400;0,700;1,400&display=swap">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/main.js" defer></script>
 </head>
 <body>
 
@@ -18,13 +18,13 @@
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <header class="site-header">
-        <a class="site-header__logo" href="index.html">StoryCast</a>
+        <a class="site-header__logo" href="../index.html">StoryCast</a>
 
         <nav class="site-nav" aria-label="Main">
             <ul class="site-nav__list">
-                <li><a class="site-nav__link" href="index.html">Home</a></li>
+                <li><a class="site-nav__link" href="../index.html">Home</a></li>
                 <li><a class="site-nav__link" href="story.html" aria-current="page">Stories</a></li>
-                <li><a class="site-nav__link" href="about.html">About</a></li>
+                <li><a class="site-nav__link" href="../about.html">About</a></li>
             </ul>
         </nav>
 
@@ -38,13 +38,13 @@
             <!-- main.js shows one of these two figures based on ?story=N. Without JS, story #1's video shows. -->
             <figure class="story__video" data-media="video">
                 <!-- No autoplay. preload="metadata" loads the length and first frame only. -->
-                <video class="story__player" controls preload="metadata" poster="assets/images/story-1-poster.jpg" aria-describedby="story-description">
-                    <source src="assets/video/story-1.mp4" type="video/mp4">
-                    <track kind="captions" src="assets/captions/story-1-en.vtt" srclang="en" label="English" default>
+                <video class="story__player" controls preload="metadata" poster="../assets/images/story-1-poster.jpg" aria-describedby="story-description">
+                    <source src="../assets/video/story-1.mp4" type="video/mp4">
+                    <track kind="captions" src="../assets/captions/story-1-en.vtt" srclang="en" label="English" default>
                     <!-- Fallback for browsers that can't play the video -->
                     <p>
                         Your browser can't play this video.
-                        <a href="assets/video/story-1.mp4" data-media-download>Download the video</a>
+                        <a href="../assets/video/story-1.mp4" data-media-download>Download the video</a>
                         or read the <a href="#transcript">transcript</a>.
                     </p>
                 </video>
@@ -52,13 +52,13 @@
 
             <!-- Audio stories: cover image plus player. Audio has no captions, so the transcript below carries the content. -->
             <figure class="story__audio" data-media="audio" hidden>
-                <img class="story__cover" src="assets/images/story-4-poster.jpg" alt="" loading="lazy">
+                <img class="story__cover" src="../assets/images/story-4-poster.jpg" alt="" loading="lazy">
                 <audio class="story__player" controls preload="none" aria-describedby="story-description">
-                    <source src="assets/audio/story-4.m4a" type="audio/mp4">
+                    <source src="../assets/audio/story-4.m4a" type="audio/mp4">
                     <!-- Fallback for browsers that can't play the audio -->
                     <p>
                         Your browser can't play this audio.
-                        <a href="assets/audio/story-4.m4a" data-media-download>Download the audio</a>
+                        <a href="../assets/audio/story-4.m4a" data-media-download>Download the audio</a>
                         or read the <a href="#transcript">transcript</a>.
                     </p>
                 </audio>
@@ -82,7 +82,7 @@
                 <p>Every word, plus sound notes in [brackets], as a plain text file.</p>
                 <!-- main.js points this link at the current story's transcript -->
                 <p>
-                    <a class="btn" href="assets/transcripts/story-1.txt" data-transcript>Read the transcript</a>
+                    <a class="btn" href="../assets/transcripts/story-1.txt" data-transcript>Read the transcript</a>
                 </p>
             </section>
 
@@ -93,7 +93,7 @@
             <ul class="related__list">
                 <li class="related__item">
                     <article class="story-card">
-                        <img class="story-card__image" src="assets/images/story-4-thumb.jpg" alt="">
+                        <img class="story-card__image" src="../assets/images/story-4-thumb.jpg" alt="">
                         <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=4">A Day Managing Frontend Interns</a></h3>
                         <p class="story-card__meta">
                             <span class="format-label">Audio</span>
@@ -104,7 +104,7 @@
                 </li>
                 <li class="related__item">
                     <article class="story-card">
-                        <img class="story-card__image" src="assets/images/story-2-thumb.jpg" alt="">
+                        <img class="story-card__image" src="../assets/images/story-2-thumb.jpg" alt="">
                         <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=2">My First Football Match in Kigali</a></h3>
                         <p class="story-card__meta">
                             <span class="format-label">Video</span>
@@ -115,7 +115,7 @@
                 </li>
                 <li class="related__item">
                     <article class="story-card">
-                        <img class="story-card__image" src="assets/images/story-5-thumb.jpg" alt="">
+                        <img class="story-card__image" src="../assets/images/story-5-thumb.jpg" alt="">
                         <h3 class="story-card__title"><a class="story-card__link" href="story.html?story=5">Why My Website Needed a CDN</a></h3>
                         <p class="story-card__meta">
                             <span class="format-label">Audio</span>

@@ -7,8 +7,9 @@ A small, accessible storytelling site of video and audio stories about studying 
 ```
 storycast/
 ├── index.html            Home: hero, featured stories carousel, topics
-├── story.html            Story page: one template for all 5 stories (?story=1 to ?story=5)
 ├── about.html            About: why I started, who it's for, accessibility, how to engage
+├── story/
+│   └── story.html        Story page: one template for all 5 stories (?story=1 to ?story=5)
 ├── css/
 │   └── main.css          Compiled stylesheet (generated from sass/, do not edit by hand)
 ├── sass/
@@ -55,9 +56,20 @@ Elements get their own class instead of being styled through tag selectors (`.he
 
 A later layer always wins over an earlier one, whatever the selector specificity. So a component's styles reliably override the reset and base styles, and `.visually-hidden` in the last layer can never be undone by a component. The token partials (`_colors`, `_typography`, `_spacing`) output no CSS; each layer partial loads the tokens it needs with `@use`.
 
+### Container query
+
+"You might also like" is a container (`container: related / inline-size`), so its layout depends on the space it has, not the screen width. The same list is a narrow sidebar on laptops but full width below the story on tablets:
+
+| Space for the list | Layout |
+|---|---|
+| Under 36rem (laptop sidebar, phones) | One column of compact cards, thumbnail beside the title |
+| 36rem or more (below the story on tablets) | A grid of full cards |
+
+The breakpoint is the `$cq-related-grid` token in `_spacing.scss`.
+
 ### How the story page works
 
-There is one story page, `story.html`. Each story card links to `story.html?story=N`. `js/main.js` holds the details of all 5 stories and, based on `N`:
+There is one story page, `story/story.html`. Each story card links to `story/story.html?story=N`. `js/main.js` holds the details of all 5 stories and, based on `N`:
 
 - shows the video player (stories 1 to 3) or the cover image and audio player (stories 4 and 5)
 - fills in the title, format, duration, location, description and transcript link

@@ -41,6 +41,8 @@ const STORIES = {
     }
 };
 
+const ASSETS = "../assets";
+
 // Number of cards in "You might also like"
 const RELATED_COUNT = 3;
 
@@ -69,7 +71,7 @@ function fillStoryCard(card, id) {
     const story = STORIES[id];
     const link = card.querySelector(".story-card__link");
 
-    card.querySelector("img").src = `assets/images/story-${id}-thumb.jpg`;
+    card.querySelector("img").src = `${ASSETS}/images/story-${id}-thumb.jpg`;
     link.href = `story.html?story=${id}`;
     link.textContent = story.title;
     card.querySelector(".format-label").textContent = story.format;
@@ -79,7 +81,7 @@ function fillStoryCard(card, id) {
     time.textContent = story.duration;
 }
 
-// story.html: show the story from ?story=N, using the video or audio layout
+// story/story.html: show the story from ?story=N, using the video or audio layout
 function initStoryPage() {
     const page = document.querySelector(".story-layout");
     if (!page) return;
@@ -94,8 +96,8 @@ function initStoryPage() {
     const audioFigure = page.querySelector('[data-media="audio"]');
     const activeFigure = isAudio ? audioFigure : videoFigure;
     const player = activeFigure.querySelector("video, audio");
-    const mediaSrc = isAudio ? `assets/audio/story-${id}.m4a` : `assets/video/story-${id}.mp4`;
-    const poster = `assets/images/story-${id}-poster.jpg`;
+    const mediaSrc = isAudio ? `${ASSETS}/audio/story-${id}.m4a` : `${ASSETS}/video/story-${id}.mp4`;
+    const poster = `${ASSETS}/images/story-${id}-poster.jpg`;
 
     // Pause and hide the player that isn't used, then show the right one
     const inactivePlayer = (isAudio ? videoFigure : audioFigure).querySelector("video, audio");
@@ -110,7 +112,7 @@ function initStoryPage() {
         activeFigure.querySelector("img").src = poster;
     } else {
         player.poster = poster;
-        player.querySelector("track").src = `assets/captions/story-${id}-en.vtt`;
+        player.querySelector("track").src = `${ASSETS}/captions/story-${id}-en.vtt`;
     }
     player.preload = "metadata";
     player.load();
@@ -124,7 +126,7 @@ function initStoryPage() {
     time.textContent = story.duration;
     page.querySelector("[data-story-location]").textContent = story.location;
     page.querySelector("#story-description").textContent = story.description;
-    page.querySelector("[data-transcript]").href = `assets/transcripts/story-${id}.txt`;
+    page.querySelector("[data-transcript]").href = `${ASSETS}/transcripts/story-${id}.txt`;
 
     // "You might also like": the other stories, in order, reusing the first card as a template
     const relatedList = page.querySelector(".related__list");
