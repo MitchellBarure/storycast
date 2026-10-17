@@ -765,6 +765,8 @@ li:nth-child(4n+4) > .story-card {
   aspect-ratio: 4/3;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: 50% 30%;
+     object-position: 50% 30%;
   background-color: #F7BAD8;
   border: 3px solid #23003F;
   border-radius: 1.5rem;

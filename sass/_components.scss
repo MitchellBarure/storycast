@@ -315,6 +315,8 @@ $sticker-shadow-hover: ($shadow-offset * 2) ($shadow-offset * 2) 0 $border;
         width: 100%;
         aspect-ratio: 4 / 3;
         object-fit: cover;
+        // The photo is tall: crop from near the top so no one's head is cut off
+        object-position: 50% 30%;
         background-color: $bubblegum;
         border: $border-width solid $border;
         border-radius: $radius-l;
